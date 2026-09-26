@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "51626d0d2bbfadc1",
@@ -205,7 +206,9 @@
   },
   "active": "cf30b6ce254c9187",
   "lastOpenFiles": [
+    "Use-Case Diagram.png",
     "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
+    "ActivityDiagram.png",
     "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "projectplan.md",
     "Welcome.md"

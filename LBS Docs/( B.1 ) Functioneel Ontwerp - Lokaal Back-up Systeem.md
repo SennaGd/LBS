@@ -14,13 +14,90 @@ In het document<u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de requirem
 
 # Use-Case
 ##  Diagram
-
+![[Use-Case Diagram.png]]
 
 ## Tabellen
 
+| Naam                   | Start programma omgeving op                                                                                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scenario               | De gebruiker typt "LBS" (kort voor: Lokaal Back-Up Systeem) in de terminal en wordt vervolgens in de lbs omgeving gezet. Zodra hij in de omgeving zit krijgt hij een welkomst bericht te zien. |
+| Uitzonderingen         | De gebruiker typt het programma in en vervolgens geeft hij gelijk argumenten mee: "LBS -f backup". Hierbij start de omgeving niet maar zal het programma wel een command uitvoeren.            |
+| Niet-Functionele Eisen |                                                                                                                                                                                                |
+| Postconditie           | De gebruiker kan in de "LBS" omgeving komen.                                                                                                                                                   |
+
+| Naam                   | Sluit het programma af                                                                                                                                                                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Scenario               | De gebruiker typt "exit" of drukt op "CTRL + C" om het programma geforceerd af te sluiten waardoor de actieve taak ook niet zich zal voltooien.  <br>De command "exit" kan alleen worden aangeroepen zodra het programma klaar is met zijn taak. |
+| Uitzonderingen         | de command "exit" kan niet worden aangeroepen wanneer het programma bezig is met een back-up maken/ophalen.                                                                                                                                      |
+| Niet-Functionele Eisen | "CTRL + C" rustig afsluiten: De taak eerst afmaken voordat het programma afsluit.                                                                                                                                                                |
+| Postconditie           | De gebruiker kan het programma op twee manieren afsluiten.<br>1. Geforceerd, Stopt het programma direct zonder de taak af te maken.<br>2. Elegant, Kan pas aangeroepen worden zodra de actieve taak klaar is.<br>                                |
+
+| Naam                   | Maakt een backupbestand aan                                                                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scenario               | De gebruiker typt 'new "backup2"' in de omgeving om een nieuw backupbestand aan te maken met de naam "backup2". Dit kan ook worden gedaan zonder de omgeving op te starten. Dan typt de gebruiker 'LBS -n "backup2"'. Zodra de gebruiker dit command heeft uitgevoerd zal er een nieuw bestand aangemaakt worden. |
+| Uitzonderingen         | De gebruiker probeert een backup aan te maken met dezelfde naam als een ander backupbestand, zodra dit gebeurt zal het programma deze command weigeren en een bericht tonen dat het niet succesvol is afgerond.                                                                                                   |
+| Niet-Functionele Eisen | Meerdere backupbestanden in een keer aanmaken.                                                                                                                                                                                                                                                                    |
+| Postconditie           | De gebruiker kan in (en uit) de omgeving een nieuw backupbestand aanmaken.                                                                                                                                                                                                                                        |
+
+| Naam                   | Backupbestand verwijderen                                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scenario               | De gebruiker typt 'remove "backup2"' in de omgeving om een bestaand backupbestand te verwijderen. Zodra de gebruiker dit typt zal het programma dit bestand verwijderen. Dit kan ook uit de omgeving, hierbij typt de gebruiker: 'LBS -r "backup2"'. |
+| Uitzonderingen         | De gebruiker probeerd een niet bestand backupbestand te verwijderen. Het programma zal een bericht tonen dat het gegeven bestand niet bestaat.                                                                                                       |
+| Niet-Functionele Eisen | Meerdere backupbestanden in een keer verwijderen.                                                                                                                                                                                                    |
+| Postconditie           | De gebruiker kan een backupbestand verwijderen.                                                                                                                                                                                                      |
+
+| Naam                   | Het pad van backupbestand ophalen                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scenario               | De gebruiker typt 'path "backup2"' om het bestandpad op te halen van het backupbestand. het programma zal hier het pad van het backupbestand tonen (zoals: "/usr/dev/documents/backup2"). Dit kan ook uit de omgeving gedaan kunnen met het command: 'LBS -p "backup2"' |
+| Uitzonderingen         | de gebruiker probeert meerdere bestanden op te halen of een niet bestaand backupbestand. Zodra dit gebeurt zal het programma een bericht tonen dat het gegeven bestand niet een geldig bestand is.                                                                      |
+| Niet-Functionele Eisen | Meerdere backupbestand's paden opzoeken.                                                                                                                                                                                                                                |
+| Postconditie           | De gebruiker kan het pad van een backupbestand ophalen.                                                                                                                                                                                                                 |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
+| Naam                   |     |
+| ---------------------- | --- |
+| Scenario               |     |
+| Uitzonderingen         |     |
+| Niet-Functionele Eisen |     |
+| Postconditie           |     |
+
 
 # Activiteit Diagram
-
+![[ActivityDiagram.png]]
 
 # Planning
 
