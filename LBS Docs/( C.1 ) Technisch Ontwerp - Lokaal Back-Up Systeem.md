@@ -47,7 +47,7 @@ Voor de documentatiewebsite hoeft er niet getest te worden. Sinds het niet uit m
 	In de LBS omgeving zal het programma actief aan zijn. Hierbij kan de gebruiker een command typen en uitvoeren zodra er op "enter" wordt gedrukt. Wanneer dit gebeurt zal het systeem actief informatie laten zien als pure text.
 2. Terminal
 	In de terminal kan LBS ook kunnen aangeroepen worden. Hierbij zal er een andere wijze zijn van hoe de command's worden getypt. Het programma zal net als in de omgeving actief informatie tonen in de vorm van tekst.
-#### Backupbestanden
+### Backupbestanden
 LBS regelt het uitlezen van de backupbestanden. De backupbestanden zijn op zichzelf tekst bestanden. Elke lijn in een backupbestand is een bestandspad of een folderspad. LBS weet wanneer het gegeven pad een folder/bestand is door te kijken of er een "." in de lijn staat.
 Elke bestand/folder heeft een "identificatie" achter het pad hebben. Dit kan zijn "FILE" of "FOLDER".
 
@@ -61,7 +61,7 @@ FILE /usr/dev/documents/file2.txt
 FILE /usr/dev/documents/file3.txt
 ```
 
-#### Versiebeheerbestanden
+### Versiebeheerbestanden
 In het versiebeheerbestand staan alle veranderingen in van elke versie. LBS regelt het versiebeheer. Zodra een back-up geupdate is zal lbs de vorige versie vergelijken met de nieuwe geupdate back-up. Elke versie krijgt een identificatienummer (ID), deze wordt getypt als: `[1]` voor elke update zal de nieuwe versie het vorige identificatienummer + 1  worden. Het versiebeheerbestand is ook net als het backupbestand geschreven in tekst.
 Voor elk bestand komt FILE voor te staan, hierdoor weet LBS welk bestand er werd aangepast. Voor elke lijn die aangepast is zal er een "+" of een "-" zijn, deze tekens betekenen of er een lijn is aangepast/toegevoegd. Het nummer dat na de +/- komt is de lijn dat aangepast is. Als er een lijn is aangepast dat alle andere lijnen een lijn naar onder brengt zullen al deze lijnen een nieuw lijnnummer krijgen. 
 
