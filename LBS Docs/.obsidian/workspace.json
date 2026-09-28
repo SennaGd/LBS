@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem"
+              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
             }
           }
         ],
@@ -205,6 +205,7 @@
   },
   "active": "cf30b6ce254c9187",
   "lastOpenFiles": [
+    "images/Use-Case.md",
     "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
     "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",

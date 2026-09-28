@@ -14,6 +14,7 @@ In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de require
 
 # Use-Case
 ##  Diagram
+![image](./images/Use-Case Diagram.png)
 ![[Use-Case Diagram.png]]
 
 ## Tabellen
