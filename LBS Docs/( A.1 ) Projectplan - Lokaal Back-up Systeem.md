@@ -2,7 +2,7 @@ Gemaakt door Senna Draaijer
 Datum: 21 / 09 / 2026
 
 # Inleiding
-Voor het nieuwe schoolproject hebben wij opdracht gekregen om zelf te kiezen om een project  te maken, dit project zal moeten goedgekeurd worden door de opdrachtgever (docent). Ik heb zelf gekozen om een lokaal back-up systeem te maken, om verschillende bestanden op te slaan/ophalen. 
+Voor het nieuwe schoolproject hebben wij opdracht gekregen om zelf te kiezen om een project  te maken, dit project zal moeten goedgekeurd worden door de opdrachtgever (docent). Ik heb zelf gekozen om een lokaal back-up systeem (Kort voor: "LBS") te maken, om verschillende bestanden op te slaan/ophalen. 
 # Projectomschrijving
 Een back-up systeem is een systeem waar je bestanden kan op slaan, dit soort programma's zijn er voor om dataverlies te voorkomen. Dit systeem zal een command line interface programma zijn, waardoor er geen geen website of een visuele applicatie zal zijn maar wel een interface om te zien wat je daadwerkelijk  op zal slaan. 
 
