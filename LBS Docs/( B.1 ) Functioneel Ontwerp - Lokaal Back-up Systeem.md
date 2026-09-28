@@ -1,22 +1,17 @@
 Datum: 21 / 09 / 2026
 # Inleiding
 Dit document beschrijft het functioneel ontwerp van de command-line applicatie "lokaal back-up systeem" (LBS). De applicatie wordt gebruikt om lokaal een kopie te maken door gebruik te maken van de command-line. De gebruiker maakt gebruik van *backupbestanden* waar de paden van verschillende bestanden/folders in staan. Zodra een *backupbestand* wordt opgeroepen met de taak om een backup op te halen zal het programma de bestanden vervangen met de back-up die gemaakt is. Er komt ook een versiebeheer in het programma dat bijhoudt wat voor veranderingen er zijn gemaakt, dit doet de applicatie naast een *backupbestand* als een *versiebeheerbestand* hierin staan alle veranderingen en versies van de back-up. Met versiebeheer kan de gebruiker ook op basis van de versie de back-up terughalen (dus bijvoorbeeld versie **1.2** terughalen).
-
 # Situatiebeschrijving
 ## Huidige Situatie
 Momenteel om een back-up te maken voor meerdere bestanden moet je dit handmatig kopieren en plakken. Er is geen versiebeheer voor deze methode en kan ook niet oude versies terughalen. Er zijn natuurlijk wel applicaties die back-ups kunnen maken zoals: "FreeFileSync", "EaseUs Todo Backup", "Duplicati" en nog veel meer. Het probleem met deze applicaties is dat ze redelijk oud zijn en geen goeie documentatie hebben. Hierdoor is het moeilijk voor de meeste mensen om zo'n programma te gebruiken.
 
 ## Gewenste Situatie
 Het systeem zal er voor moeten zorgen dat gebruikers gemakkelijk een back-up kan maken van een of meerdere bestand(en)/folder(s), dit wordt gedaan met *backupbestanden*. In de *backupbestanden* worden de paden van alle folders en bestanden opgeslagen. De gebruiker zal op een eenvoudige manier een bestandspad kunnen toevoegen aan zo'n bestand (dit zal ook handmatig gewijzigd kunnen worden). Zodra de gebruiker een back-up maakt slaat het *versiebeheerbestand* alle veranderingen op in het bestand en geeft dit vervolgens een versienummer, met het versienummer kan de gebruiker oude versies terughalen van de back-up. 
-
 # Requirements 
-In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de requirements terug.
-
+In het document <u>( A.1 ) Projectplan</u> vind je in de [MoSCoW](%28%20A.1%20%29%20Projectplan%20-%20Lokaal%20Back-up%20Systeem.md#MoSCoW) tabel de requirements terug.
 # Use-Case
 ##  Diagram
 ![image](./images/Use-Case-Diagram.png)
-
-
 ## Tabellen
 
 | Naam                   | Start programma omgeving op                                                                                                                                                         |
@@ -68,12 +63,12 @@ In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de require
 | Niet-Functionele Eisen | Meerdere bestanden/folders verwijderen.                                                                                                                                                                                                                                                                                |
 | Postconditie           | De gebruiker kan bestanden en folders verwijderen uit een backupbestand. Dit kan worden gedaan in de LBS omgeving maar ook erbuiten.                                                                                                                                                                                   |
 
-| Naam                   | Hulp command uitvoeren                                                                                                                                                                 |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Scenario               | De gebruiker wilt te weten komen hoe een bepaalde command werkt, hiervoor typt de gebruiker: "help" in de omgeving. De gebruiker krijgt een lijst met commando's die hij kan gebruiken |
-| Uitzonderingen         | Geen                                                                                                                                                                                   |
-| Niet-Functionele Eisen | Speciale formatting voor de hulp pagina                                                                                                                                                |
-| Postconditie           | De gebruiker kan de hulp-pagina oproepen.                                                                                                                                              |
+| Naam                   | Hulp command uitvoeren                                                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scenario               | De gebruiker wilt te weten komen hoe een bepaalde command werkt, hiervoor typt de gebruiker: "help" in de omgeving. De gebruiker krijgt een lijst met command's die hij kan gebruiken |
+| Uitzonderingen         | Geen                                                                                                                                                                                  |
+| Niet-Functionele Eisen | Speciale formatting voor de hulp pagina                                                                                                                                               |
+| Postconditie           | De gebruiker kan de hulp-pagina oproepen.                                                                                                                                             |
 
 | Naam                   | Maakt een back-up aan                                                                                                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,9 +105,6 @@ In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de require
 | Niet-Functionele Eisen | Genummerde lijst van bestanden.                                                                                                              |
 | Postconditie           | De gebruiker kan de inhoud van een backupbestand ophalen.                                                                                    |
 
-
-# Activiteit Diagram
-![image](./images/ActivityDiagram.png)
 # Planning
 
 | Dag      | Fase                   | Taak                      |      Uren       |

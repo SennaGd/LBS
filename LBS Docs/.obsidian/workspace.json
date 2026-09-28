@@ -6,6 +6,7 @@
       {
         "id": "4d8562d9e985989c",
         "type": "tabs",
+        "dimension": 54.41176470588235,
         "children": [
           {
             "id": "253a1a7b49e50eff",
@@ -13,12 +14,48 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
-                "mode": "preview",
-                "source": true
+                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "( A.1 ) Projectplan - Lokaal Back-up Systeem"
+              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
+            }
+          },
+          {
+            "id": "020488d9049b5714",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "7fee79b972f17958",
+        "type": "tabs",
+        "dimension": 45.588235294117645,
+        "children": [
+          {
+            "id": "46c1dcd6a6994d86",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
             }
           }
         ]
@@ -99,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Projectplan Bootloader.md",
+                "file": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,15 +225,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "253a1a7b49e50eff",
+  "active": "020488d9049b5714",
   "lastOpenFiles": [
+    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
     "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
-    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+    "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
+    "**2..md",
+    "(.md",
+    "[(.md",
+    "[[(.md",
+    "images/Use-Case-Diagram.png",
     "images/Use-Case.md",
     "images/ActivityDiagram.png",
-    "images/Use-Case-Diagram.png",
-    "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "images",
     "projectplan.md",
     "Welcome.md"
