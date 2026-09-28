@@ -14,29 +14,14 @@
               "type": "markdown",
               "state": {
                 "file": "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
-                "mode": "source",
-                "source": false
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
               "title": "( A.1 ) Projectplan - Lokaal Back-up Systeem"
             }
-          },
-          {
-            "id": "cf30b6ce254c9187",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -203,16 +188,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "cf30b6ce254c9187",
+  "active": "253a1a7b49e50eff",
   "lastOpenFiles": [
-    "images/Use-Case.md",
-    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
     "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
-    "images/Use-Case Diagram.png",
+    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+    "images/Use-Case.md",
+    "images/ActivityDiagram.png",
+    "images/Use-Case-Diagram.png",
     "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "images",
-    "images/ActivityDiagram.png",
     "projectplan.md",
     "Welcome.md"
   ]

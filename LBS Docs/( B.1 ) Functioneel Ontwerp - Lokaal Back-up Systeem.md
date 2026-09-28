@@ -14,7 +14,7 @@ In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de require
 
 # Use-Case
 ##  Diagram
-![image](/images/Use-Case Diagram.png)
+![image](./images/Use-Case-Diagram.png)
 
 
 ## Tabellen
@@ -112,8 +112,7 @@ In het document <u>( A.1 ) Projectplan</u> vind je in de MoSCoW tabel de require
 
 
 # Activiteit Diagram
-![[ActivityDiagram.png]]
-
+![image](./images/ActivityDiagram.png)
 # Planning
 
 | Dag      | Fase                   | Taak                      |      Uren       |
