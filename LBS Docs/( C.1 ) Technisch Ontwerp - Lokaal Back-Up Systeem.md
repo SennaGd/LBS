@@ -2,7 +2,6 @@ Datum: 27 / 09 / 2026
 
 # Inleiding
 Dit document beschrijft de technische architectuur en de realisatie van het Lokaal Back-Up Systeem, gebaseerd op de functionele eisen. In het document [[( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem]] bevindt zich de informatie over de applicatie. De doelstelling van dit document is om de functionaliteiten/use-cases te realiseren en uit te pakken. De keuzes gemaakt in dit document zijn gebaseerd op de tijd gegeven voor het project (4 weken). 
-
 # Plan van aanpak
 In de applicatie LBS (Lokaal Back-Up Systeem) zijn er twee verschillende producten vastgesteld. Waarvan het hoofdproduct het LBS programma is en als zijproduct de documentatie website. 
 
@@ -93,17 +92,63 @@ FILE /usr/dev/documents/file.txt
 # Ontwikkelomgeving
 
 ### Technischeinfrastructuur
-- beveiliging;
-- opslag van data;
-- cloudservices of lokale omgeving;
-- vereiste software en runtime.
-#### Schema's
-##### Systeemarchitectuur
+**Beveiliging**
+Voor LBS geldt dat alles lokaal gedaan moet worden, hierbij zullen er geen netwerkconnecties zijn die verbonden zijn aan aanliggende api's: sinds het programma geen data naar een database zal sturen.
+**Opslag van data**
+Er zijn twee bestanden die nodig zijn om een back-up te maken, dit zijn: Backupbestanden en Versiebeheerbestanden. Daarnaast zijn er ook nog de gemaakte back-ups. De backupbestanden en versiebeheerbestanden zijn in principe alleen voor LBS om de benodigde bestanden/folders op te slaan of op te halen. Waarbij de back-ups de resultaten zijn.
 
-##### Componentendiagram
+De backupbestanden zullen zich bevinden in een folder genaamd: "LBS/backup-files/", deze folder zal dus ook zich bevinden op het pad waar LBS is gedownload. 
+
+Voor de versiebeheerbestanden geldt hetzelfde, deze bestanden zullen zich bevinden op het pad: "LBS/backup-versions/".
+
+De opgeslagen back-ups worden opgeslagen in folders, deze folders bevinden zich op het pad: /usr/dev/backups/**BACK-UP NAAM**. 
+
+***Vereiste software en runtime***
+Om LBS te kunnen uitvoeren heeft de gebruiker GCC nodig om het bestand te kunnen compileren, er zal 'waarschijnlijk' ook een standalone binary komen waarbij de gebruiker dit niet nodig heeft. De runtime van het programma zal zich in de terminal bevinden. Dus wanneer de gebruiker een terminal opened zal de runtime actief zijn. De terminal zal wel 
+#### Schema's
+##### Activity Diagram
+![image](./images/ActivityDiagram.png)
 
 ### Ontwikkeltools
+Voor dit project worden er verschillende "tools" gebruikt. Die staan hieronder bescreven.
 
+##### Programmeertalen
+De programmeer talen voor dit systeem zullen **C** en **LUA** zijn. Dit is gekozen omdat C snel is voor belangrijke taken en Lua zich goed kan koppelen onder C, sinds Lua een klein programmeertaal is geschreven in C. 
+
+-- Samenvatting Programmeertalen --
+- C
+- Lua
+
+##### Versiebeheersysteem
+Voor het versiebeheer wordt er gebruik gemaakt van **Github**, sinds github versiebeheer makkelijk in combinatie van **Git** maakt, git wordt gebruikt voor het committen en pushen van een nieuwe versie dat Github dan weer opslaat.
+
+-- Samenvatting Versiebeheersysteem --
+- Github
+- Git
+
+##### IDE (Code Editor)
+Code editors verschillen bij veel programmeurs, sinds er veel bestaan. Bij dit project zal ik (de programmeur) gebruik maken van NeoVim (Nvim). Dit komt omdat Nvim snel opstart, handig is om tekst te veranderen, opzoeken of verwijderen. 
+
+-- Samenvatting IDE --
+- Neovim | Snel & Praktisch
+
+##### Testtools
+Voor het testen wordt er gebruik gemaakt van een terminal. De terminal kan zijn: **Alacritty**, **Kitty**, **Konsole**, **WezTerm**. Uiteindelijk kan er een mogelijkheid zijn dat er **Powershell** ook zal werken maar de manier hoe windows de bestandspaden heeft met "\\" is erg onpraktisch.
+
+-- Samenvatting testtools --
+- Alacritty / Kitty / Konsole / WezTerm | Gemaakt voor unix
+- ? Powershell | ? Windows terminal 
+
+##### Documentatie- en Projectmanagementtools
+Voor dit project zullen er een paar documentatie/projectmanagement tools worden gebruikt. De documentatie die is geschreven voor dit project wordt gedaan in **Obsidian**. Dit is een markdown text editor om gemakkelijk markdown te typen.
+
+Daarnaast voor de diagrammen wordt er gebruik gemaakt van **Figma**, dit programma wordt veel gebruikt onder de "Mediaformgevers" en is mij aanbevolen door een student die zelf ook die opleiding doet. 
+
+Het project is opgeslagen op Github, dit is gedaan omdat Github ook al het versiebeheer regelt. Hiervoor kan je dus ook gemakkelijk oude versies terughalen van de documentatie.
+
+-- Samenvatting Documentatie/Projectmanagementtools --
+- Obsidian | Tekst Editor
+- Figma | Diagrammen
+- Github | Opslaan
 
 # Activiteit Diagram
-![image](./images/ActivityDiagram.png)
