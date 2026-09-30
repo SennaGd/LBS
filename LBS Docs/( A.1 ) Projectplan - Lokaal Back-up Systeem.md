@@ -13,7 +13,18 @@ Ook zal je deze back-up's terug kunnen halen op basis van de naam van het *backu
 De *backupbestanden* zal je ook handmatig kunnen bewerken, om ze te openen kan je de bestandspaden vinden van alle aangemaakte *backupbestanden*. Deze bestanden zullen ook een bestand er naast hebben om de versiebeheer bij te houden. Dus je kan ook oudere versies kunnen ophalen op basis van zo'n versiebeheer bestand.
 
 Om het systeem te gebruiken zal er ook een handleiding zijn om de gebruiker te helpen, dit kan worden aangeroepen als argument in het programma (denk aan "git --help"). Ook zal er een website beschiktbaar zijn om de documentatie van het programma te lezen, waar er meer wordt uigelegd over het programma.
-# Doelstelling
+# Doelstellingen
+De gebruiker kan automatisch opslaan meerdere bestanden op slaan, in plaats van handmatig de bestanden een voor een te kopieren. 
+Als de gebruiker hulp nodig heeft kan hij het hulp commando oproepen in plaats van de source code te lezen.
+Om meer te leren over back-up systemen & versiebeheer.
+# Resultaat
+De gebruiker zal een *backupbestand* kunnen aanmaken om daar vervolgens bestanden en folders aan te koppelen. Zodra de gebruiker bestanden heeft toegevoegd in het *backupbestand* zal de gebruiker een back-up kunnen maken van de bestanden/folders die in het *backupbestand* staan. Dan maakt het programma een kopie van alle bestanden en zet ze in een aparte folder met dezelfde naam als het *backupbestand*. 
+
+Zodra er een back-up is gemaakt zal de gebruiker de back-up ook kunnen ophalen, zodra de gebruiker dit doet zal hij een bevestiging krijgen dat hij moet accepteren. Als dit geaccepteerd wordt zullen de bestanden worden vervangen waar de oude versies stonden.
+
+Daarnaast zal je verschillende versies kunnen ophalen van back-ups, dus een versiebeheer alleen zonder veranderings tekst (wat github doet met commits). De gebruiker kan ook oudere back-ups terughalen om bijvoorbeeld een werkende versie op te halen. Deze kan je ophalen met een versie. Elke back-up voegd een 0.1 bij de versie. waar dan versie "0.9 + 0.1 = versie: 1.0".  
+
+#### Samenvatting Resultaten 
 - *backupbestand* aanmaken
 - folder(s) en bestand(en) toevoegen aan *backupbestand*
 - backup uitvoeren gebaseerd op geselecteerde *backupbestand*
@@ -22,14 +33,6 @@ Om het systeem te gebruiken zal er ook een handleiding zijn om de gebruiker te h
 - gemakkelijk backup versies terughalen van bestanden met behulp van een versie-beheer bestand.
 - *backupbestanden* handmatig kunnen aanpassen
 - hulp pagina kunnen aanroepen
-
-# Resultaat
-De gebruiker zal een *backupbestand* kunnen aanmaken om daar vervolgens bestanden en folders aan te koppelen. Zodra de gebruiker bestanden heeft toegevoegd in het *backupbestand* zal de gebruiker een back-up kunnen maken van de bestanden/folders die in het *backupbestand* staan. Dan maakt het programma een kopie van alle bestanden en zet ze in een aparte folder met dezelfde naam als het *backupbestand*. 
-
-Zodra er een back-up is gemaakt zal de gebruiker de back-up ook kunnen ophalen, zodra de gebruiker dit doet zal hij een bevestiging krijgen dat hij moet accepteren. Als dit geaccepteerd wordt zullen de bestanden worden vervangen waar de oude versies stonden.
-
-Daarnaast zal je verschillende versies kunnen ophalen van back-ups, dus een versiebeheer alleen zonder veranderings tekst (wat github doet met commits). De gebruiker kan ook oudere back-ups terughalen om bijvoorbeeld een werkende versie op te halen. Deze kan je ophalen met een versie. Elke back-up voegd een 0.1 bij de versie. waar dan versie "0.9 + 0.1 = versie: 1.0".  
-
 # Afbakening
 ## MoSCoW
 
