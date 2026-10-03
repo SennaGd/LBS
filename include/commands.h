@@ -4,7 +4,9 @@
 typedef struct {
 	char* name;		
 	int(*ptr)();
-} command;
+} COMMAND;
 
-
+struct CMD_LIST {
+	COMMAND command[10];
+};
 #endif
