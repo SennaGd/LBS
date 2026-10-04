@@ -5,7 +5,7 @@
 #include <lauxlib.h>
 
 #include "commands.h"
-#include "handler/handler.c"
+#include "handler/input_parser.c"
 
 
 int hello() {
@@ -41,21 +41,17 @@ int main(int argc, char *argv[])
 		// Input loop
 		char buffer[512];
 		while(1) {
+			printf("> ");
 			fgets(input, sizeof(input), stdin);
 
-			// Get command 
-			for (int i=0; i < strlen(input); i++) {
-				if (input[i] != ' ' & i < strlen(input)-1){
-					buffer[i] = input[i];
-				} else {
-					break;
-				}
-			}
-
+			parse_input(input, buffer);
+				
 			// Check if help command
 			if (strcmp(buffer, "help" ) == 0) {
 				printf("This is the help command.\n");
 			}
+			
+			printf("Result: %s\n", buffer);
 
 			strcpy(buffer, "");
 		}
