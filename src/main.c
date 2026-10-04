@@ -16,10 +16,6 @@ int hello() {
 
 int main(int argc, char *argv[]) 
 {
-
-	lua_State *L = luaL_newstate();
-	luaL_openlibs(L);
-
 	char input[512]; 
 	
 	COMMAND hello_c = {
@@ -35,38 +31,34 @@ int main(int argc, char *argv[])
 	if (argc > 1) {
         printf("Hello, %s!\n", argv[1]);
 	
-		lua_close(L);	
 		return 0;
     } 
 
 	// Start Environment
 	else {
-		lua_pushstring(L, "this is a variable");
-		
-		lua_setglobal(L, "hi");
-
-		if (luaL_loadfile(L, "./scripts/handler.lua") || lua_pcall(L, 0, 0, 0)) {
-			printf("Error in lua file: \n%s\n", lua_tostring(L, -1));
-		}
-
 		printf("Welcome to LBS!\n");
 
-		int luacheck = handler();
 		// Input loop
+		char buffer[512];
 		while(1) {
 			fgets(input, sizeof(input), stdin);
-			// Loop over commands names in commands list
-			// Check if first chars of input (escaping on empty space)
-			//
-			// Run commands in commands list with args
-			if (strcmp(input, "hello\n") == 0) {
-				hello_c.ptr();
-				printf("%d", luacheck);
+
+			// Get command 
+			for (int i=0; i < strlen(input); i++) {
+				if (input[i] != ' ' & i < strlen(input)-1){
+					buffer[i] = input[i];
+				} else {
+					break;
+				}
 			}
 
+			// Check if help command
+			if (strcmp(buffer, "help" ) == 0) {
+				printf("This is the help command.\n");
+			}
+
+			strcpy(buffer, "");
 		}
 	}
-	
-	lua_close(L);
 	return 0;
 }
