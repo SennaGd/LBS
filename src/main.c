@@ -43,15 +43,15 @@ int main(int argc, char *argv[])
 		while(1) {
 			printf("> ");
 			fgets(input, sizeof(input), stdin);
+			char command[512];
+			strcpy(command,input);
 
-			parse_input(input, buffer);
-				
+			fetch_command(command);
+			fetch_args(input, strlen(command));
 			// Check if help command
-			if (strcmp(buffer, "help" ) == 0) {
+			if (strcmp(command, "help" ) == 0) {
 				printf("This is the help command.\n");
 			}
-			
-			printf("Result: %s\n", buffer);
 
 			strcpy(buffer, "");
 		}
