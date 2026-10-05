@@ -40,17 +40,20 @@ int main(int argc, char *argv[])
 		// Input loop
 		char buffer[512];
 		while(1) {
+			char command[512];
+
+			node_t *head = NULL;
+			head = (node_t *) malloc(sizeof(node_t));
+
 			printf("> ");
 			fgets(input, sizeof(input), stdin);
-			char command[512];
+
 			strcpy(command,input);
 
 			fetch_command(command);
-			fetch_args(input, strlen(command));
-			// Check if help command
-			if (strcmp(command, "help" ) == 0) {
-				printf("This is the help command.\n");
-			}
+			fetch_args(input, strlen(command), head);
+				
+			list_print(head);	
 
 			strcpy(buffer, "");
 		}
