@@ -11,6 +11,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 include_directories(include)
 include_directories(src/handler)
+include_directories(src/types)
 include_directories(scripts)
 
 add_executable(

@@ -1,6 +1,8 @@
 #include <stddef.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "Linked_List.c"
 
 // Fetches first word (i.e. "command") from user input
 // Does not include a newline char: '\n'.
@@ -27,10 +29,14 @@ void fetch_command(char cmd[512]) {
 	return;
 }
 
-struct ArgNode {
-	char* data;
-	struct ArgNode *next;	
-};
+void remove_spaces(char* s) {
+    char* d = s;
+    do {
+        while (*d == ' ') {
+            ++d;
+        }
+    } while (*s++ = *d++);
+}
 
 // Fetches the arguments from user input.
 // args pos = sz_cmd + 1
@@ -39,44 +45,27 @@ void fetch_args(char input[512], size_t sz_cmd) {
 //	printf("\ninput: %s", input);
 //	printf("sz_cmd: %zu, in_len: %zu, input: %s\n",  sz_cmd, input_len, input);
 
-	int num_args = 0;
-	for (int i = sz_cmd; i<input_len; i++) {
-		printf("%c", input[i]);
-		
-		if (input[i] == ' ' && i < input_len-2) {
-			num_args++;
-		}
-	}
+	int index = 0;
+	char buff[128];
 	
-	struct ArgNode NODES[num_args];
+	node_t *head = NULL;
+	head = (node_t *) malloc(sizeof(node_t));
 
-	// sz_cmd + 1 to skip empty char
-	char buf[512];
-	int arg_count;
 	for (int i = sz_cmd+1; i<input_len; i++) {
-		if (input[i] != ' ' && input[i] != '\n') {
-			printf("i: %d, char: %c\n", i, input[i]);
-			strcpy(&buf[i], &input[i]);
-		} 
-		else if (input[i] == '\n') {
-			break;
-		}
+		if (input[i] == ' ' || input[i] == '\n' || input[i] == '\0') {
+			printf("%s", buff);
 
-		else {
-			printf("buf: %s\n", buf);
-			arg_count++;
-			NODES[arg_count].data = buf;
-			NODES[arg_count-1].next = &NODES[arg_count];
-			strcpy(buf, "");
-		}	
+			remove_spaces(buff);
+			list_push(head, buff);
+			memset(&buff[0], ' ', sizeof(buff));
+				
+			index=0;
+		} else {
+				
+			memset(&buff[index], input[i], 1*sizeof(char));
+			index++;
+		}
 	}
-//
-//	struct ArgNode *temp = NODES;
-//
-//	while (temp->next != NULL) {
-//		printf("%s", temp->data);
-//
-//		temp = temp->next;
-//
-//	} 
+	list_print(head);
+
 }

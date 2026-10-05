@@ -19,8 +19,7 @@ int main(int argc, char *argv[])
 	char input[512]; 
 	
 	COMMAND hello_c = {
-		"hello",
-		 hello,
+		"hello", hello,
 	};
 
 	struct CMD_LIST cmd_container = {
