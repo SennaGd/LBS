@@ -1,6 +1,8 @@
 function new_backup(arguments)
-	file = io.open(arguments[1]..".back", "a")
+	print("creating new backup file called: "..arguments[1]..".back")
+	file = io.open(arguments[1]..".back", "r")
 	io.input(file)
 	print(io.read())
 	io.close(file)
 end
+return new_backup

@@ -1,13 +1,11 @@
----@diagnostic disable: undefined-global
-
 require("scripts.command_proc")
 require("scripts.commands.new_backup")
-local command	= command	or ""
-local arguments = arguments or {}
 
+command = command or ""
+arguments = arguments or {}
 
 local command_list = {
-	["hello"] = new_backup(arguments),
+	["new"] = new_backup,
 }
 
 --for k, v in pairs(arguments) do
@@ -15,6 +13,11 @@ local command_list = {
 --end
 
 local func = command_list[command]
-if func then
-	func()
+if arguments[1] then
+    print("Arguments index 1: " .. tostring(arguments[1]))
+end
+if command_list[command] then
+	func(arguments)
+else 
+	print("some variable is not defined.")
 end
