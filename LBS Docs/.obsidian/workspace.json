@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem"
+              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
             }
           }
         ],
@@ -219,12 +219,12 @@
   },
   "active": "e7f115931e480324",
   "lastOpenFiles": [
-    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
+    "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+    "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
     "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "( E.1 ) Testcases - Lokaal Back-Up Systeem.md",
-    "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
     "images/Use-Case-Diagram.png",
     "images/ActivityDiagram.png",
     "images",

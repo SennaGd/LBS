@@ -1,3 +1,4 @@
+#include "string_parser.h"
 // removes all spaces from a given string
 void remove_spaces(char* s) {
     char* d = s;

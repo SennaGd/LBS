@@ -3,12 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-
-typedef struct Node {
-	char data[128];
-	struct Node *next;
-} node_t;
-
+#include "linked_list.h"
 
 void list_print(node_t *head) {
 	node_t *current = head;
