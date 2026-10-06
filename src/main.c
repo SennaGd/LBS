@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 			char command[512];
 			
 			// User input
-			printf("\033[0;35m❯ \033[0m");
+
+			printf("\n[LBS]\n\033[0;35m❯ \033[0m");
 			fgets(input, sizeof(input), stdin);
 
 			strcpy(command,input);
