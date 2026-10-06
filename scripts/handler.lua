@@ -1,10 +1,12 @@
 require("scripts.commands.new_backup")
+require("scripts.commands.help")
 
 command = command or ""
 arguments = arguments or {}
 
 local command_list = {
-	["new"] = new_backup,
+	["new"] = c_new,
+	["help"] = c_help,
 }
 
 --for k, v in pairs(arguments) do
