@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 	lua_State *L = luaL_newstate();
 	luaL_openlibs(L);
 	
-	const int TESTS_ENABLED = 1;
+	const int TESTS_ENABLED = 0;
+	const int DEBUG = 1;
 
 	char input[512]; 
 	
@@ -32,10 +33,7 @@ int main(int argc, char *argv[])
 		char buffer[512];
 		while ( 1 ) {
 			char command[512];
-
-			node_t *head = NULL;
-			head = (node_t *) malloc(sizeof(node_t));
-
+			
 			// User input
 			printf("\033[0;35m❯ \033[0m");
 			fgets(input, sizeof(input), stdin);
@@ -45,7 +43,7 @@ int main(int argc, char *argv[])
 			int err = fetch_command(command);
 			if ( !err ) { continue; }
 
-			err = fetch_args(input, strlen(command), head, L);
+			err = fetch_args(input, strlen(command), L);
 			if ( !err ) { continue; }
 			
 			// Call Lua 
@@ -55,7 +53,6 @@ int main(int argc, char *argv[])
 			if (luaL_loadfile(L, "./scripts/handler.lua") || lua_pcall(L, 0, 0, 0)) {
 				printf("Error in lua file: \n%s\n", lua_tostring(L, -1));
 			}
-
 
 			strcpy(buffer, "");
 		} 

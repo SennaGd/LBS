@@ -41,7 +41,7 @@ int fetch_command(char cmd[512]) {
 
 
 // Fetches the arguments from user input.
-int fetch_args(char input[512], size_t sz_cmd, node_t *list, lua_State *L) {
+int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 	size_t input_len = strlen(input);
 
 	int index = 0;
@@ -52,7 +52,7 @@ int fetch_args(char input[512], size_t sz_cmd, node_t *list, lua_State *L) {
 	for (int i = sz_cmd+1; i<input_len; i++) {
 		if (input[i] == ' ' || input[i] == '\n' || input[i] == '\0') {
 			remove_spaces(buff);
-			list_push(list, buff);
+			// list_push(list, buff);
 
 			lua_pushstring(L, buff);
 			lua_rawseti(L, -2, count+1);

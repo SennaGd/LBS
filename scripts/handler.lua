@@ -1,15 +1,20 @@
 ---@diagnostic disable: undefined-global
 
 require("scripts.command_proc")
+require("scripts.commands.new_backup")
+local command	= command	or ""
+local arguments = arguments or {}
+
+
 local command_list = {
-	["hello"] = "This is the hello command",
+	["hello"] = new_backup(arguments),
 }
 
-print(arguments[1])
+--for k, v in pairs(arguments) do
+--	print(k, v)
+--end
 
-for k, v in pairs(arguments) do
-	print(k, v)
-	
+local func = command_list[command]
+if func then
+	func()
 end
-
-print("Current command:".. command_list[command])
