@@ -14,6 +14,7 @@ local command_list = {
 local func = command_list[command]
 
 if command_list[command] then
+-- func disabled currently
 	func(arguments)
 else 
 	print("Unknown command: " .. command .. 

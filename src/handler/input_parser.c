@@ -50,16 +50,20 @@ int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 	
 	lua_createtable(L, 20, 0);
 	for (int i = sz_cmd+1; i<input_len; i++) {
-		if (input[i] == ' ' || input[i] == '\n' || input[i] == '\0') {
+		if (input[i] == ' ' || input[i] == '\n') {
+			if ( index > 0 ) {
 			remove_spaces(buff);
-			// list_push(list, buff);
 
+			buff[index] = '\0';
+														   
 			lua_pushstring(L, buff);
 			lua_rawseti(L, -2, count+1);
 
-			memset(&buff[0], ' ', sizeof(buff));
 			count++;	
 			index=0;
+
+			memset(buff, 0, sizeof(buff));
+			}
 		} else {
 			memset(&buff[index], input[i], 1*sizeof(char));
 			index++;
