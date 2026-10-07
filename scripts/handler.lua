@@ -1,19 +1,14 @@
-require("scripts.commands.new_backup")
-require("scripts.commands.help")
-require("scripts.commands.read_backup")
+require("scripts.commands.init")
 
 command = command or ""
 arguments = arguments or {}
 
 local command_list = {
-	["new"] = c_new,
 	["help"] = c_help,
+	["new"] = c_new,
 	["read"] = c_read,
+	["delete"] = c_remove,
 }
-
---for k, v in pairs(arguments) do
---	print(k, v)
---end
 
 local func = command_list[command]
 
