@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+                "file": "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem"
+              "title": "( A.1 ) Projectplan - Lokaal Back-up Systeem"
             }
           }
         ],
@@ -219,9 +219,13 @@
   },
   "active": "e7f115931e480324",
   "lastOpenFiles": [
-    "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
-    "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+    "gesprekken/07_10_26-Gespreksverslag-Imholz.md~",
     "( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem.md",
+    "gesprekken/07_10_26-Gespreksverslag-Imholz.md",
+    "( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem.md",
+    "testverslagen",
+    "gesprekken",
+    "( A.1 ) Projectplan - Lokaal Back-up Systeem.md",
     "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "( D.1 ) Testplan - Lokaal Back-Up Systeem.md",
     "( E.1 ) Testcases - Lokaal Back-Up Systeem.md",

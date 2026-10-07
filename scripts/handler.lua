@@ -1,5 +1,6 @@
 require("scripts.commands.new_backup")
 require("scripts.commands.help")
+require("scripts.commands.read_backup")
 
 command = command or ""
 arguments = arguments or {}
@@ -7,6 +8,7 @@ arguments = arguments or {}
 local command_list = {
 	["new"] = c_new,
 	["help"] = c_help,
+	["read"] = c_read,
 }
 
 --for k, v in pairs(arguments) do

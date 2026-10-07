@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	luaL_openlibs(L);
 	
 	const int TESTS_ENABLED = 0;
-	const int DEBUG = 1;
 
 	char input[512]; 
 	
@@ -36,16 +35,16 @@ int main(int argc, char *argv[])
 			
 			// User input
 
-			printf("\n[LBS]\n\033[0;35m❯ \033[0m");
+			printf("\n\033[0;34m[LBS]\n\033[0;35m❯ \033[0m");
 			fgets(input, sizeof(input), stdin);
 
 			strcpy(command,input);
 
 			int err = fetch_command(command);
-			if ( !err ) { continue; }
+			if ( err ) { continue; }
 
 			err = fetch_args(input, strlen(command), L);
-			if ( !err ) { continue; }
+			if ( err ) { continue; }
 			
 			// Call Lua 
 			lua_pushstring(L, command); 

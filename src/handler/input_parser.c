@@ -23,7 +23,7 @@ int fetch_command(char cmd[512]) {
 			buf[i] = '\0'; // escape char on last index
 
 			strcpy(cmd, buf); 
-			return 1;
+			return 0;
 		} else {
 			strcpy(&buf[i], &cmd[i]);
 		}
@@ -32,11 +32,11 @@ int fetch_command(char cmd[512]) {
 	// check for newline char on last buf index
 	if (buf[strlen(buf)-1] == '\n'){
 		printf("Error in: cmd_parser.c | FOUND NEWLINE\n");
-		return 0;
+		return 1;
 	}
 
 	strcpy(cmd, buf);
-	return 1;
+	return 0;
 }
 
 
@@ -50,8 +50,7 @@ int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 	
 	lua_createtable(L, 20, 0);
 	for (int i = sz_cmd+1; i<input_len; i++) {
-		if (input[i] == ' ' || input[i] == '\n') {
-			if ( index > 0 ) {
+		if (input[i] == ' ' || input[i] == '\n' && index > 0) {
 			remove_spaces(buff);
 
 			buff[index] = '\0';
@@ -63,7 +62,6 @@ int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 			index=0;
 
 			memset(buff, 0, sizeof(buff));
-			}
 		} else {
 			memset(&buff[index], input[i], 1*sizeof(char));
 			index++;
@@ -72,5 +70,5 @@ int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 
 	lua_setglobal(L, "arguments");
 
-	return 1;
+	return 0;
 }
