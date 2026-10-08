@@ -52,9 +52,10 @@ Daarnaast zal je verschillende versies kunnen ophalen van back-ups, dus een vers
 | E - 12 | Commit-bericht voor backups                                | Could-Have     |
 | E - 13 | Documentatie website                                       | Could-Have     |
 | E - 14 | Meerdere Folders/Bestanden toevoegen aan *backupbestand*   | Could-Have     |
-| E - 15 | User interface (Volledige visuele applicatie)              | Wont-Have      |
+| E - 15 | Automatische Backups                                       | Could-Have     |
 | E - 16 | Meerdere Folders/Bestanden verwijderen uit *backupbestand* | Wont-Have      |
 | E - 17 | Cloud Opslag                                               | Wont-Have      |
+| E - 18 | User interface (Volledige visuele applicatie)              | Wont-Have      |
 
 # Randvoorwaarde
 - Weekelijkse meeting met productowner
