@@ -7,7 +7,9 @@ local command_list = {
 	["help"] = c_help,
 	["new"] = c_new,
 	["read"] = c_read,
-	["delete"] = c_remove,
+	["delete"] = c_delete,
+	["add"] = c_add,
+
 }
 
 local func = command_list[command]

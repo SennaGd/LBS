@@ -1,3 +1,4 @@
+-- Reads .back files contents
 function c_read(arguments)
 	if not arguments[1] then 
 		print("Error: No argument given")

@@ -1,0 +1,1 @@
+-- Removes content from .back fille

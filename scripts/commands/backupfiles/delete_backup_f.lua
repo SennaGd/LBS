@@ -1,4 +1,5 @@
-function c_remove(arguments)
+-- Deletes given .back file
+function c_delete(arguments)
 	if not arguments[1] then 
 		print("Error: No argument given")
 		return

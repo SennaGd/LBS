@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
 			int err = fetch_command(command);
 			if ( err ) { continue; }
-
+			
 			err = fetch_args(input, strlen(command), L);
 			if ( err ) { continue; }
 			
