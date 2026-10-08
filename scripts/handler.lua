@@ -5,11 +5,15 @@ arguments = arguments or {}
 
 local command_list = {
 	["help"] = c_help,
+	["version"] = c_version,	
+	-- Creating, Deleting and Reading Backupfiles
 	["new"] = c_new,
 	["read"] = c_read,
 	["delete"] = c_delete,
-	["add"] = c_add,
 
+	-- Manipulating Backupfiles Contents
+	["add"] = c_add, 
+	["remove"] = c_remove,
 }
 
 local func = command_list[command]
