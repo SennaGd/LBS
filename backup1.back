@@ -3,3 +3,5 @@ FILE /usr/superprivate/password.env
 FILE hello
 FOLDER bai/
 FOLDER hellow2/
+FOLDER /usr/imgs/
+FILE /home/dev/Projects/LBS

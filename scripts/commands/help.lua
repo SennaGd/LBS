@@ -27,6 +27,9 @@ Mandatory arguments to long options are mandatory for short options too.
   <b>add, -a</>
 	Adding file/folder to backup-file
 	Args: [BACKUPFILE] [FILE/FOLDER]
+	
+	FILE/FOLDER should be in $HOME directory
+	<b></>Only checks for files inside the <b><R>HOME DIRECTORY </><b>(i.e. "<Y>/home/username/</><b>")</>
   <b>remove, -r</>
 	Removing file/folder of backup-file
 	Args: [BACKUPFILE] [FILE/FOLDER]
