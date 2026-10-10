@@ -1,7 +1,9 @@
 require("scripts.commands.init")
 
+
 command = command or ""
 arguments = arguments or {}
+backups = os.getenv("HOME") .. "/Backups/"
 
 local command_list = {
 	["help"] = c_help,
@@ -20,7 +22,7 @@ local func = command_list[command]
 
 if command_list[command] then
 -- func disabled currently
-	func(arguments)
+	func(arguments, backups)
 else 
 	print("Unknown command: " .. command .. 
 				"\nTry 'help' for more information.")

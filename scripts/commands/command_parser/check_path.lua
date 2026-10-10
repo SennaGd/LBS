@@ -1,3 +1,5 @@
+
+-- checks if file exists 
 function t_check(path)
 	local f = io.open(path, "r")
 	
@@ -9,7 +11,7 @@ function t_check(path)
 	end
 end
 
-
+-- parses arguments for delimiters and appends paths accordingly
 function c_path_delimiters(path)
 	local home = os.getenv("HOME") or ""
 

@@ -1,35 +1,43 @@
 -- Removes content from .back fille
-function c_remove(arguments)
-	local check = io.open(arguments[1]..".back", "r")
+function c_remove(arguments, backups)
+	local content = "" -- contains new file content 
+	local backupfile = backups .. arguments[1] .. ".back"
+
+	-- check if backupfile exists
+	local check = io.open(backupfile,"r")
 	if not check then
-		print("File '"..arguments[1]..".back' does not exist")
+		print("File '"..backupfile..".back' does not exist")
 		return 	
 	end
 
-	file = io.open(arguments[1]..".back", "r")
+	local file = io.open(backupfile, "r")
 	io.input(file)
-	
-	local content = "" 
+
 	for line in io.lines() do
+		-- loop over words in line 
 		for token in string.gmatch(line, "[^%s]+") do
 		    if token ~= "FOLDER" and token ~= "FILE" then
 				path = token
 				break
 			end
 		end
+
+		-- append line to new content | should stay in file
 		if arguments[2] ~= path then
 			content = content .. line .. "\n" 
 		else
-			print("Removed '"..path.."' from '"..arguments[1]..".back'") 
+			print("Removed '"..path.."' from '" .. backupfile .. "'") 
 		end
 	end
 
+	-- close read file
 	io.close(file)
 
-	-- writing new contents to file
-	local file = io.open(arguments[1]..".back", "w")
+	-- writing new contents of "content" to file
+	file = io.open(backupfile, "w")
 	if file then
 		local parsed_content = ""
+
 		if type(content) == "table" then
 			parsed_content = table.concat(content, "\n")
 		else
@@ -40,5 +48,4 @@ function c_remove(arguments)
 		file:flush()
 		file:close()
 	end
-
 end

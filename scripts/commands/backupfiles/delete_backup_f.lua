@@ -1,13 +1,16 @@
 -- Deletes given .back file
-function c_delete(arguments)
+function c_delete(arguments, backups)
 	if not arguments[1] then 
 		print("Error: No argument given")
 		return
 	end
-	local result, message = os.remove(arguments[1]..".back")
+
+	local backupfile = backups .. arguments[1] .. ".back"
+
+	local result, message = os.remove(backupfile)
 	if result then
-		print("File '"..arguments[1].."' deleted successfully")
+		print("File '".. backupfile .. "' deleted successfully")
 	else
-		print("Error: File '"..arguments[1].."' could not be deleted.\n", message)
+		print("Error: File '" .. backupfile .. "' could not be deleted.\n", message)
 	end
 end
