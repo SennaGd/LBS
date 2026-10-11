@@ -1,4 +1,3 @@
-
 -- checks if file exists 
 function t_check(path)
 	local f = io.open(path, "r")

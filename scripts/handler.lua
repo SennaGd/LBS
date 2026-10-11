@@ -20,9 +20,20 @@ local command_list = {
 
 local func = command_list[command]
 
+
+-- checks if args is true
+function c_args() 
+	if arguments == nil then
+		print("No arguments given")
+		return nil
+	else 
+		return true
+	end
+end
+
 if command_list[command] then
 -- func disabled currently
-	func(arguments, backups)
+	func(arguments)
 else 
 	print("Unknown command: " .. command .. 
 				"\nTry 'help' for more information.")
