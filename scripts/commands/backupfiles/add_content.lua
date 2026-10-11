@@ -4,7 +4,12 @@ require("scripts.commands.command_parser.dir_type")
 
 -- Adds content (i.e. files/folders) to .back file
 function c_add(args)
-	-- check for backupfile | i.e. args[2]
+	if args[1] == nil then
+		print("Error: no arguments given")
+		return
+	end
+	print(args[2])
+	-- check if backupfile exists
 	local check = io.open(args[2], "r")
 	if not check then
 		print("File '" .. args[2] .. "' does not exist")
@@ -29,7 +34,7 @@ function c_add(args)
 		end
 		
 		-- open backupfile in append mode
-		local file = io.open(args[2],"a")
+		local file = io.open(args[2], "a")
 		if file then
 			io.input(file)
 			file:write(path)

@@ -1,7 +1,7 @@
 -- Deletes given .back file
-function c_delete(args, backups)
-	if not args[1] then 
-		print("Error: No argument given")
+function c_delete(args)
+	if args[1] == nil then
+		print("Error: no argument given")
 		return
 	end
 

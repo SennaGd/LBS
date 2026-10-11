@@ -1,16 +1,21 @@
 -- Removes content from .back fille
-function c_remove(arguments, backups)
-	local content = "" -- contains new file content 
-	local backupfile = backups .. arguments[1] .. ".back"
+function c_remove(args)
+	if args[1] == nil then
+		print("Error: no arguments given")
+		return
+	end
 
-	-- check if backupfile exists
-	local check = io.open(backupfile,"r")
+	local content = "" -- contains new file content 
+
+	-- check if args[2] exists
+	local check = io.open(args[2], "r")
 	if not check then
-		print("File '"..backupfile..".back' does not exist")
+		print("File '"..args[2]..".back' does not exist")
 		return 	
 	end
 
-	local file = io.open(backupfile, "r")
+
+	local file = io.open(args[2], "r")
 	io.input(file)
 
 	for line in io.lines() do
@@ -23,10 +28,10 @@ function c_remove(arguments, backups)
 		end
 
 		-- append line to new content | should stay in file
-		if arguments[2] ~= path then
+		if args[3] ~= path then
 			content = content .. line .. "\n" 
 		else
-			print("Removed '"..path.."' from '" .. backupfile .. "'") 
+			print("Removed '"..path.."' from '" .. args[2] .. "'") 
 		end
 	end
 
@@ -34,7 +39,7 @@ function c_remove(arguments, backups)
 	io.close(file)
 
 	-- writing new contents of "content" to file
-	file = io.open(backupfile, "w")
+	file = io.open(args[2], "w")
 	if file then
 		local parsed_content = ""
 
