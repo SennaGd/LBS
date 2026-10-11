@@ -1,17 +1,15 @@
 require("scripts.commands.command_parser.dir_type")
 
 -- Creates a new .back file
-function c_new(arguments, backups)
-	local backupfile = backups .. arguments[1] .. ".back"
-
-	-- check if backup folder exists
-	local folder = os.execute("mkdir " .. backups)
+function c_new(args)
+	-- check if backup folder exists | else create it
+	local folder = os.execute("mkdir " .. os.getenv("HOME").."/Backups/")
 	if folder then
 		print("creating backups folder at '" .. backups .. "'")
 	end
 
-	if io.open(backupfile,"a") then
-		print("Created new backup file '" .. backupfile .. "'")
+	if io.open(args[2],"a") then
+		print("Created new backup file '" .. args[2] .. "'")
 	else
 		print("Failed to create file")
 	end

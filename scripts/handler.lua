@@ -3,7 +3,24 @@ require("scripts.commands.init")
 
 command = command or ""
 arguments = arguments or {}
-backups = os.getenv("HOME") .. "/Backups/"
+
+if arguments[1] ~= nil then 
+	-- insert home if args given
+	table.insert(arguments, 1, os.getenv("HOME") .. "/Backups/")
+
+	-- args[2] == full .back filepath
+	arguments[2] = arguments[1] .. arguments[2] .. ".back" 
+else
+	-- insert nil at pos 1
+	table.insert(arguments, 1, nil) 
+	arguments[2] = nil
+end
+
+
+for k,v in pairs(arguments) do 
+	print(k, v)
+end
+
 
 local command_list = {
 	["help"] = c_help,
@@ -32,8 +49,7 @@ function c_args()
 end
 
 if command_list[command] then
--- func disabled currently
-	func(arguments)
+	func(arguments, backups)
 else 
 	print("Unknown command: " .. command .. 
 				"\nTry 'help' for more information.")
