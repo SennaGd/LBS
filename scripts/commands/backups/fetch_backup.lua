@@ -14,6 +14,7 @@ function c_fetch_backup(args)
 	local backup_folder = string.gsub(args[2], ".back", "")
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
+			-- check if it's folder/file
 			if word == "FOLDER" then 
 				is_file = false
 				goto continue	
@@ -24,37 +25,20 @@ function c_fetch_backup(args)
 				goto continue	
 			end
 
-
+			-- fetch the last word in filepath string | file/dir name
 			for s_word in word:gmatch"[^/,\r\n]+" do
 				if s_word ~= nil then
-					folder_name = s_word
+					dir_name = s_word
 				end
 			end
 			
-			w_c_ = word	
-			w_c_ = string.gsub(w_c_, folder_name, "")
-			w_c_ = w_c_:sub(1, -2)
+			word_cpy_ = string.gsub(word, dir_name, ""):sub(1, -2)
 
-			print("parsed:\n",w_c_)
-			print("foldername:", folder_name)
-			print("source:", backup_folder.."/"..folder_name)
-			print("destination:", word)
-			
-
-			-- command should be
-			-- yes | cp -rf /home/dev/Backups/b/tstypes/ /home/dev/Projects/
-			-- todo: remove /tstypes from the destination
-
+			-- creating copy command for file/dir
+			copy_cmd = "yes | cp  -rf ".. backup_folder.."/"..dir_name .. " " .. word_cpy_ 
 			if is_file == true then
-				copy_cmd = "yes | cp ".. backup_folder.."/"..folder_name .. " " .. w_c_
-			elseif is_file == false then
-				
-
-				copy_cmd = "yes | cp -rf ".. backup_folder.."/"..folder_name .. "/ " .. w_c_
+				copy_cmd = string.gsub(copy_cmd, " --rf", "")
 			end
-
-			print(is_file)
-			print("copy_cmd", copy_cmd)
 
 			os.execute(copy_cmd)
 
