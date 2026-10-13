@@ -1,4 +1,4 @@
-function c_new_backup(args)
+function c_create_backup(args)
 	if args[1] == nil then
 		print("Error: no arguments given")
 		return
@@ -15,10 +15,17 @@ function c_new_backup(args)
 	local backup_folder = string.gsub(args[2], ".back", "")
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
-			if word == "FOLDER" or word == "FILE" then 
+			
+			if word == "FOLDER" then 
+				is_file = false
 				goto continue	
 			end
 			
+			if word == "FILE" then
+				is_file = true 
+				goto continue	
+			end
+
 			-- fetching last word in directory string
 			for s_word in word:gmatch"[^/,\r\n]+" do
 				if s_word ~= nil then

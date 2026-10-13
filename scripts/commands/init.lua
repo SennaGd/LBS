@@ -15,4 +15,5 @@ return {
 	
 	-- handling backups
 	require("scripts.commands.backups.new_backup"),
+	require("scripts.commands.backups.fetch_backup"),
 }

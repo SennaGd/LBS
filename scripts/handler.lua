@@ -36,7 +36,8 @@ local command_list = {
 	["add"]		= c_add, 
 	["remove"]	= c_remove,
 
-	["backup"]	= c_new_backup,
+	["backup"]	= c_create_backup,
+	["fetch"]	= c_fetch_backup,
 }
 
 local func = command_list[command]
