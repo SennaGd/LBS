@@ -12,16 +12,15 @@ function c_fetch_backup(args)
 	io.input(file)	
 	
 	local backup_folder = string.gsub(args[2], ".back", "")
+
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
 			-- check if it's folder/file
-			if word == "FOLDER" then 
-				is_file = false
-				goto continue	
-			end
-			
 			if word == "FILE" then
 				is_file = true 
+				goto continue	
+			elseif word == "FOLDER" then 
+				is_file = false
 				goto continue	
 			end
 
@@ -45,6 +44,4 @@ function c_fetch_backup(args)
 			::continue::
 		end
 	end
-
-
 end

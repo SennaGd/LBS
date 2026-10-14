@@ -38,6 +38,9 @@ local command_list = {
 
 	["backup"]	= c_create_backup,
 	["fetch"]	= c_fetch_backup,
+
+	-- test 
+	["t"] = compare_files,
 }
 
 local func = command_list[command]
