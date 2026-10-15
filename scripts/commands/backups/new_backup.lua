@@ -1,57 +1,3 @@
-function fetch_filepath(args)
-	local backup_folder = string.gsub(args[2], ".back", "")
-	
-	local file = io.open(args[2], "r")
-	if not file then
-		print("File '" .. args[2] .. "' does not exist")
-		return
-	end
-
-	io.input(file)
-	
-	local filepaths = {}
-	for line in io.lines() do
-		-- insert parsed line into filepaths
-		local p_line = string.gsub(line, "FILE", ""):gsub("FOLDER", "") 
-		table.insert(filepaths, p_line)
-	end
-	
-	return filepaths
-end
-
-
-function fetch_backupfolder(args)
-	local start_idx, end_idx = string.find(args[2], "Backups")
-	return string.sub(args[2], 1, end_idx)
-end
-
-
-function fetch_last_word(filepath)
-	for s_word in filepath:gmatch"[^/,\r\n]+" do
-		if s_word ~= nil then
-			last_word = s_word
-		end
-	end
-
-	return last_word
-end
-
-
-function file_exists(file)
-	local f = io.open(file, "rb")
-	if f then f:close() end
-	return f ~= nil
-end
-
-
-function fetch_contents(file)
-	if not file_exists(file) then return {} end
-	local lines = {}
-	for line in io.lines(file) do
-		lines[#lines + 1] = line
-	end
-	return lines
-end
 
 -- taking in backup line/origin line
 -- returns integer value 
@@ -78,7 +24,7 @@ function compare_files(args)
 	end
 
 	local backup_folder = fetch_backupfolder(args)	
-	local filepaths = fetch_filepath(args)
+	local filepaths = extract_filepaths(args)
 
 	local states = {
 		{ "equal", "=" },
@@ -116,29 +62,19 @@ function compare_files(args)
 	end
 end
 
-function rm_file_extention(filename)
-	return filename:sub(1,filename:find("%.back")-1)
-end
 
 function c_create_backup(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-	return end
+	if not has_args(args) then return end
 
 	local file = args[2]
 	if not file_exists(file) then 
 		print("File '" .. args[2] .. "' does not exist") 
 	return end
 
-	io.input(file)	
-
-	--!!!! HERE THE BACKUPFILES PATH IS SET !!!!--
-	local backup_folder = fetch_backupfolder(args) --> /home/dev/Backups
-
 	local filename = fetch_last_word(args[2])
 	filename = rm_file_extention(filename)
-	local backup_path = backup_folder .. "/container/"..filename
-	--!!!!----------------------------------!!!!--
+
+	local backup_path = fetch_backupfolder(args) .. "/container/"..filename
 	
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
@@ -162,6 +98,3 @@ function c_create_backup(args)
 	end
 end
 
--- hello, this was added whilst the program was running!
--- hurm
--- Hello

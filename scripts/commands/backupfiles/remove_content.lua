@@ -1,19 +1,15 @@
 -- Removes content from .back fille
 function c_remove(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
-	end
+	print(args[1])
+	if not has_args(args) then return end
+
+	-- check if backupfile exists
+	if not file_exists(args[2]) then 
+		print("File '" .. args[2] .. "' does not exist") 
+	return end
+
 
 	local content = "" -- contains new file content 
-
-	-- check if args[2] exists
-	local check = io.open(args[2], "r")
-	if not check then
-		print("File '"..args[2]..".back' does not exist")
-		return 	
-	end
-
 
 	local file = io.open(args[2], "r")
 	io.input(file)
@@ -23,12 +19,12 @@ function c_remove(args)
 		for token in string.gmatch(line, "[^%s]+") do
 		    if token ~= "FOLDER" and token ~= "FILE" then
 				path = token
-				break
-			end
+			break end
 		end
 
 		-- append line to new content | should stay in file
-		if args[3] ~= path then
+		local input = c_path_delimiters(args[3])
+		if input ~= path then
 			content = content .. line .. "\n" 
 		else
 			print("Removed '"..path.."' from '" .. args[2] .. "'") 

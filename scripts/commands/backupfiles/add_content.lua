@@ -1,30 +1,20 @@
--- checks if file exists | parses tilda/home paths
-require("scripts.commands.command_parser.check_path")
-require("scripts.commands.command_parser.dir_type")
-
 -- Adds content (i.e. files/folders) to .back file
 function c_add(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
-	end
-	print(args[2])
+	if not has_args(args) then return end
+
 	-- check if backupfile exists
-	local check = io.open(args[2], "r")
-	if not check then
-		print("File '" .. args[2] .. "' does not exist")
-		return 	
-	end
+	if not file_exists(args[2]) then 
+		print("File '" .. args[2] .. "' does not exist") 
+	return end
 
 	for i = 3, #args do -- start from index 3 | i.e. 1,2 are paths
 		-- handle delimiters
 		path = c_path_delimiters(args[i])
 
 		-- check if folder/file exists
-		if t_check(path) == nil then
+		if not file_exists(path) then
 			print("Given path '"..args[i].."' does not exist")
-			return
-		end
+		return end
 
 		-- check if path is a path
 		if is_dir(path) then

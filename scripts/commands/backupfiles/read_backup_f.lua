@@ -1,15 +1,13 @@
 -- Reads .back files contents
 function c_read(args)
-	if not args[2] then 
-		print("Error: No arguments given")
-	else
-		local file = io.open(args[2], "r")
-		if file then
-			local content = file:read("*a") -- "*a" reads the ENTIRE file
-			file:close()
-			print(content)
-		else
-			print("Error: File '" .. args[2] .. "' does not exist")
-		end
-	end
+	if not has_args(args) then return end
+
+	local file = args[2]
+	if not file_exists(file) then 
+		print("File '" .. file .. "' does not exist") 
+	return end
+
+	file = io.open(file, "r")
+	print(file:read("*a")) 
+	file:close()
 end

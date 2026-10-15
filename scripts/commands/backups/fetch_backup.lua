@@ -1,21 +1,21 @@
 function c_fetch_backup(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
-	end
+	if not has_args(args) then return end
 
-	local file = io.open(args[2], "r")
-	if not file then
-		print("File '" .. args[2] .. "' does not exist")
-	end
+	local file = args[2]
+	if not file_exists(file) then 
+		print("File '" .. file .. "' does not exist") 
+	return end
 
 	io.input(file)	
 	
-	local backup_folder = string.gsub(args[2], ".back", "")
+	local filename = fetch_last_word(args[2])
+	filename = rm_file_extention(filename)
 
+	local backup_path = fetch_backupfolder(args) .. "/container/"..filename
+	
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
-			-- check if it's folder/file
+			-- check if word is a folder or file
 			if word == "FILE" then
 				is_file = true 
 				goto continue	
@@ -25,20 +25,16 @@ function c_fetch_backup(args)
 			end
 
 			-- fetch the last word in filepath string | file/dir name
-			for s_word in word:gmatch"[^/,\r\n]+" do
-				if s_word ~= nil then
-					dir_name = s_word
-				end
-			end
-			
-			word_cpy_ = string.gsub(word, dir_name, ""):sub(1, -2)
+			dir_name = fetch_last_word(word)	
 
+			word_cpy_ = string.gsub(word, dir_name, ""):sub(1, -2)
+			print(word_cpy_)
 			-- creating copy command for file/dir
-			copy_cmd = "yes | cp  -rf ".. backup_folder.."/"..dir_name .. " " .. word_cpy_ 
+			copy_cmd = "yes | cp  -rf ".. backup_path .."/"..dir_name .. " " .. word_cpy_ 
 			if is_file == true then
 				copy_cmd = string.gsub(copy_cmd, " --rf", "")
 			end
-
+			
 			os.execute(copy_cmd)
 
 			::continue::

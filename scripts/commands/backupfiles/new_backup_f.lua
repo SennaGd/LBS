@@ -1,11 +1,7 @@
-require("scripts.commands.command_parser.dir_type")
-
 -- Creates a new .back file
 function c_new(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
-	end
+	if not has_args(args) then return end
+
 	-- check if backup folder exists | else create it
 	os.execute("mkdir -p " .. os.getenv("HOME").."/Backups/backupfiles ")
 

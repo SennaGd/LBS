@@ -1,4 +1,5 @@
 require("scripts.commands.init")
+require("scripts.commands.import_utils")
 
 
 command = command or ""

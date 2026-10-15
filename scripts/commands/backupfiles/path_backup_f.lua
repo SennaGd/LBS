@@ -1,9 +1,4 @@
 function c_path(args)
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
-	end
-
+	if not has_args(args) then return end
 	print(args[2])
-	return			
-end
+return end
