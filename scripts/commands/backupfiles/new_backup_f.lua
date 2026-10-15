@@ -3,7 +3,7 @@ require("scripts.commands.command_parser.dir_type")
 -- Creates a new .back file
 function c_new(args)
 	if args[1] == nil then
-		print("args[1] is nil")
+		print("Error: no arguments given")
 		return
 	end
 	-- check if backup folder exists | else create it

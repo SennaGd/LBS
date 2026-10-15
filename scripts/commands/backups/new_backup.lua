@@ -1,7 +1,6 @@
 function fetch_filepath(args)
 	local backup_folder = string.gsub(args[2], ".back", "")
 	
-	fetch_backupfolder(args)
 	local file = io.open(args[2], "r")
 	if not file then
 		print("File '" .. args[2] .. "' does not exist")
@@ -10,15 +9,16 @@ function fetch_filepath(args)
 
 	io.input(file)
 	
-	filepaths = {}
+	local filepaths = {}
 	for line in io.lines() do
-		parsed_line = string.gsub(line, "FILE", ""):gsub("FOLDER", "")
-		table.insert(filepaths, parsed_line)
+		-- insert parsed line into filepaths
+		local p_line = string.gsub(line, "FILE", ""):gsub("FOLDER", "") 
+		table.insert(filepaths, p_line)
 	end
 	
 	return filepaths
-
 end
+
 
 function fetch_backupfolder(args)
 	return string.gsub(args[2], ".back", "")
@@ -35,11 +35,13 @@ function fetch_last_word(filepath)
 	return last_word
 end
 
+
 function file_exists(file)
 	local f = io.open(file, "rb")
 	if file then f:close() end
 	return f ~= nil
 end
+
 
 function fetch_contents(file)
 	if not file_exists(file) then return {} end
@@ -50,6 +52,23 @@ function fetch_contents(file)
 	return lines
 end
 
+-- taking in backup line/origin line
+-- returns integer value 
+function compare_line_state(b_lines, o_lines, counter)
+	local state = 1
+	if b_lines[counter] ~= o_lines[counter] then
+		state = 4
+	end
+
+	if b_lines[counter-1] == o_lines[counter] then
+		state = 2
+	elseif b_lines[counter+1] == o_lines[counter] then
+		state = 3
+	end
+
+	return state
+end
+
 
 function compare_files(args) 
 	if args[1] == nil then
@@ -58,12 +77,18 @@ function compare_files(args)
 	end
 
 	local backup_folder = fetch_backupfolder(args)	
-	filepaths = fetch_filepath(args)
+	local filepaths = fetch_filepath(args)
 
+	local states = {
+		{ "equal", "=" },
+		{ "down", "-" },
+		{ "up", "+" },
+		{ "changed", "/" }
+	}
+	local line_state = 0 
 	for k, v in pairs(filepaths) do
-		local is_file = string.find(v, "." ,1 ,true)
 		-- make sure comparing goes only for files not directories
-		if is_file == nil then
+		if string.find(v, "." ,1 ,true) == nil then
 			goto continue
 		end
 		
@@ -71,22 +96,20 @@ function compare_files(args)
 
 		local b_lines = fetch_contents(backup_folder.."/"..filename) --> backup lines
 		local o_lines = fetch_contents(string.gsub(v, " ", "")) --> origin lines
-
-
-		-- o_lines = new 
+		
+		--print("comparing"..backup_folder.."/"..filename.." to"..v)
+		-- Should return: E, C, D, D, C, D, E
+		local changes = {}
 		for i = 1, math.max(#b_lines, #o_lines)	do
-			if b_lines[i] ~= o_lines[i] then
-
-				print("Line: "..i, "has changed")
-				if b_lines[i] ~= nil then
-					print("from: "..b_lines[i])
-				end
-				if o_lines[i] ~= nil then
-					print("to:   "..o_lines[i])
-				end
-			end
+			line_state = compare_line_state(b_lines, o_lines, i) 
+			table.insert(changes, {line_state, b_lines[i], o_lines[i]})
 		end
-
+		
+		for k, v in pairs(changes) do
+			--> v[1] == change type states[v[1]]
+			--> v[2] == old version
+			--> v[3] == new version
+		end
 
 		::continue::
 	end
@@ -105,9 +128,8 @@ function c_create_backup(args)
 	end
 
 	io.input(file)	
-
 		
-	local backup_folder = string.gsub(args[2], ".back", "")
+	local backup_folder = fetch_backupfolder(args)
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
 			

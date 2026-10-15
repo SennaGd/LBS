@@ -1,7 +1,7 @@
 -- Reads .back files contents
 function c_read(args)
 	if not args[2] then 
-		print("Error: No argument given")
+		print("Error: No arguments given")
 	else
 		local file = io.open(args[2], "r")
 		if file then
