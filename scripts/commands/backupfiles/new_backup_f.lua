@@ -7,7 +7,7 @@ function c_new(args)
 		return
 	end
 	-- check if backup folder exists | else create it
-	os.execute("mkdir -p " .. os.getenv("HOME").."/Backups/ ")
+	os.execute("mkdir -p " .. os.getenv("HOME").."/Backups/backupfiles ")
 
 	if io.open(args[2],"a") then
 		print("Created new backup file '" .. args[2] .. "'")

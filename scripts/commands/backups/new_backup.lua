@@ -21,7 +21,8 @@ end
 
 
 function fetch_backupfolder(args)
-	return string.gsub(args[2], ".back", "")
+	local start_idx, end_idx = string.find(args[2], "Backups")
+	return string.sub(args[2], 1, end_idx)
 end
 
 
@@ -86,6 +87,7 @@ function compare_files(args)
 		{ "changed", "/" }
 	}
 	local line_state = 0 
+
 	for k, v in pairs(filepaths) do
 		-- make sure comparing goes only for files not directories
 		if string.find(v, "." ,1 ,true) == nil then
@@ -95,10 +97,9 @@ function compare_files(args)
 		local filename = fetch_last_word(v)
 
 		local b_lines = fetch_contents(backup_folder.."/"..filename) --> backup lines
-		local o_lines = fetch_contents(string.gsub(v, " ", "")) --> origin lines
+		local o_lines = fetch_contents(string.gsub(v, " ", ""))		 --> origin lines
 		
-		--print("comparing"..backup_folder.."/"..filename.." to"..v)
-		-- Should return: E, C, D, D, C, D, E
+		--? Should return: E, C, D, D, C, D, E
 		local changes = {}
 		for i = 1, math.max(#b_lines, #o_lines)	do
 			line_state = compare_line_state(b_lines, o_lines, i) 
@@ -129,16 +130,20 @@ function c_create_backup(args)
 
 	io.input(file)	
 		
-	local backup_folder = fetch_backupfolder(args)
+	local backup_folder = fetch_backupfolder(args) --> /home/dev/Backups
+	filename = fetch_last_word(args[2])
+	filename = filename:sub(1,filename:find("%.back")-1)
+
+
+	local backup_path = backup_folder .. "/container/"..filename
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
 			
 			if word == "FOLDER" then 
 				is_file = false
 				goto continue	
-			end
-			
-			if word == "FILE" then
+
+			elseif word == "FILE" then
 				is_file = true 
 				goto continue	
 			end
@@ -152,16 +157,15 @@ function c_create_backup(args)
 
 			print("folder_name:",backup_folder.."/"..folder_name)
 			-- making backup directory
-			local mkdir_cmd = "mkdir -p " .. backup_folder 
+			-- path -> Backups/Container/Save/
+			local mkdir_cmd = "mkdir -p " .. backup_path
 
 			-- Copying contents to directory
-			local copy_cmd = "yes | cp -rf ".. word .. " " .. backup_folder .. "/" 
+			local copy_cmd = "yes | cp -rf ".. word .. " " .. backup_path .. "/"
 			
-
 			
 			os.execute(mkdir_cmd)
-			local copy = os.execute(copy_cmd)
-			print(copy)
+			os.execute(copy_cmd)
 
 			::continue::
 		end

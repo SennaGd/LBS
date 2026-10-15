@@ -10,7 +10,7 @@ if arguments[1] ~= nil then
 
 	-- args[2] == full .back filepath
 	if string.len(arguments[2]) ~= 0 then
-		arguments[2] = arguments[1] .. arguments[2] .. ".back" 
+		arguments[2] = arguments[1] .."backupfiles/".. arguments[2] .. ".back" 
 	else
 		arguments[1] = nil
 		arguments[2] = nil
