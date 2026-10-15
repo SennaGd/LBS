@@ -39,7 +39,7 @@ end
 
 function file_exists(file)
 	local f = io.open(file, "rb")
-	if file then f:close() end
+	if f then f:close() end
 	return f ~= nil
 end
 
@@ -116,57 +116,47 @@ function compare_files(args)
 	end
 end
 
+function rm_file_extention(filename)
+	return filename:sub(1,filename:find("%.back")-1)
+end
 
 function c_create_backup(args)
 	if args[1] == nil then
 		print("Error: no arguments given")
-		return
-	end
+	return end
 
-	local file = io.open(args[2], "r")
-	if not file then
-		print("File '" .. args[2] .. "' does not exist")
-	end
+	local file = args[2]
+	if not file_exists(file) then 
+		print("File '" .. args[2] .. "' does not exist") 
+	return end
 
 	io.input(file)	
-		
+
+	--!!!! HERE THE BACKUPFILES PATH IS SET !!!!--
 	local backup_folder = fetch_backupfolder(args) --> /home/dev/Backups
-	filename = fetch_last_word(args[2])
-	filename = filename:sub(1,filename:find("%.back")-1)
 
-
+	local filename = fetch_last_word(args[2])
+	filename = rm_file_extention(filename)
 	local backup_path = backup_folder .. "/container/"..filename
+	--!!!!----------------------------------!!!!--
+	
 	for line in io.lines() do
 		for word in string.gmatch(line, "[^%s]+") do
-			
-			if word == "FOLDER" then 
-				is_file = false
-				goto continue	
-
-			elseif word == "FILE" then
-				is_file = true 
+			if word == "FOLDER" or word == "FILE" then 
 				goto continue	
 			end
 
-			-- fetching last word in directory string
-			for s_word in word:gmatch"[^/,\r\n]+" do
-				if s_word ~= nil then
-					folder_name = s_word
-				end
-			end
-
-			print("folder_name:",backup_folder.."/"..folder_name)
 			-- making backup directory
-			-- path -> Backups/Container/Save/
 			local mkdir_cmd = "mkdir -p " .. backup_path
 
 			-- Copying contents to directory
 			local copy_cmd = "yes | cp -rf ".. word .. " " .. backup_path .. "/"
 			
-			
 			os.execute(mkdir_cmd)
 			os.execute(copy_cmd)
 
+			print("created backup at '"..backup_path.."'")
+			
 			::continue::
 		end
 	end
