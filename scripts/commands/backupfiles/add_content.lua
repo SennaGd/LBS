@@ -3,13 +3,14 @@ function c_add(args)
 	if not has_args(args) then return end
 
 	-- check if backupfile exists
-	if not file_exists(args[2]) then 
-		print("File '" .. args[2] .. "' does not exist") 
+	local filepath = args[2]
+	if not file_exists(filepath) then 
+		print("File '" .. filepath .. "' does not exist") 
 	return end
 
 	for i = 3, #args do -- start from index 3 | i.e. 1,2 are paths
 		-- handle delimiters
-		path = c_path_delimiters(args[i])
+		path = parse_delimiters(args[i])
 
 		-- check if folder/file exists
 		if not file_exists(path) then
@@ -24,15 +25,15 @@ function c_add(args)
 		end
 		
 		-- open backupfile in append mode
-		local file = io.open(args[2], "a")
-		if file then
-			io.input(file)
-			file:write(path)
-			file:close()
+		local backup_file = io.open(filepath, "a")
+		if backup_file then
+			io.input(backup_file)
+			backup_file:write(path)
+			backup_file:close()
 
-			print("Added '".. args[i] .. "' to '" .. args[2] .. "'")
+			print("Added '".. args[i] .. "' to '" .. filepath .. "'")
 		else
-			print("Couldn't open args[2] '" .. args[2].. "' exiting")
+			print("Couldn't open args[2] '" .. filepath .. "' exiting")
 		end
 	end
 end

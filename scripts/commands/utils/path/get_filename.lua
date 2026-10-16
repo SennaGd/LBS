@@ -1,5 +1,5 @@
 -- fetches filename from directory
-function get_file_name(filepath)
+function get_filename(filepath)
 	for s_word in filepath:gmatch"[^/,\r\n]+" do
 		if s_word ~= nil then
 			last_word = s_word

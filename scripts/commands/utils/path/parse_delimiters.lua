@@ -1,5 +1,5 @@
 -- parses arguments for delimiters and appends paths accordingly
-function c_path_delimiters(path)
+function parse_delimiters(path)
 	local home = os.getenv("HOME") or ""
 
 	if path:sub(1,1) == "~" or path:sub(1,1) == "" then
