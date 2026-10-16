@@ -1,4 +1,4 @@
--- Removes content from .back fille
+-- Removes content from .back file
 function c_remove(args)
 	if not has_args(args) then return end
 
@@ -7,7 +7,6 @@ function c_remove(args)
 	if not file_exists(filepath) then 
 		print("File '" .. filepath .. "' does not exist") 
 	return end
-
 
 	local entries = {}
 		for line in io.lines(filepath) do
