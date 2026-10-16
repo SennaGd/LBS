@@ -1,62 +1,84 @@
 
 -- taking in backup line/origin line
 -- returns integer value 
-function compare_line_state(b_lines, o_lines, counter)
-	local state = 1
-	if b_lines[counter] ~= o_lines[counter] then
-		state = 4
-	end
 
-	if b_lines[counter-1] == o_lines[counter] then
-		state = 2
-	elseif b_lines[counter+1] == o_lines[counter] then
-		state = 3
-	end
+local function is_shifted_up(prev_old_line, current_new_line)
+	return prev_old_line ~= nil and prev_old_line == current_new_line
+end
 
-	return state
+local function is_shifted_down(next_old_line, current_new_line)
+	return next_old_line ~= nil and next_old_line == current_new_line
+end
+
+local function is_exact_match(old_line, new_line)
+	return old_line == new_line 
 end
 
 
-function compare_files(args) 
-	if args[1] == nil then
-		print("Error: no arguments given")
-		return
+function compare_line_state(old_lines, new_lines, counter)
+	local current_new_line = new_lines[counter]
+
+	if is_exact_match(old_lines[counter], current_new_line) then
+		return "EQUAL"
+	elseif is_shifted_up(old_lines[counter+1], current_new_line) then
+		return "SHIFTED_UP"
+	elseif is_shifted_down(old_lines[counter-1], current_new_line) then
+		return "SHIFTED_DOWN"
 	end
 
-	local backup_folder = fetch_backupfolder(args)	
-	local filepaths = extract_filepaths(args)
+	return "CHANGED" 
+end
 
-	local states = {
-		{ "equal", "=" },
-		{ "down", "-" },
-		{ "up", "+" },
-		{ "changed", "/" }
-	}
-	local line_state = 0 
+
+
+local function print_changes(changes)
+	for k, v in pairs(changes) do
+		print(v[1])
+		--> v[1] == change type states[v[1]]
+		--> v[2] == old version
+		--> v[3] == new version
+	end
+end
+
+local function get_file_changes(old_contents, new_contents)
+	local changes = {}
+	for i = 1, math.max(#old_contents, #new_contents) do
+		local line_state = compare_line_state(old_contents, new_contents, i) 
+		table.insert(changes, {line_state, old_contents[i], new_contents[i]})
+	end
+	
+	return changes 
+end
+
+
+local function compare_files(old_filepath, new_filepath)
+	local old_contents = fetch_contents(old_filepath)
+	local new_contents = fetch_contents(new_filepath)
+
+	local changes = get_file_changes(old_contents, new_contents)
+	print_changes(changes)
+end
+
+
+-- compares all files inside backupfile to new
+function compare_all_files(args) 
+	if not has_args(args) then return end
+
+	local filepaths = extract_filepaths(args)
+	local backup_folder = fetch_backupfolder(args)
+	local backup_name = rm_file_extention(get_file_name(args[2]))
+	
+	local backup_path = backup_folder.."/container/"..backup_name.."/"
 
 	for k, v in pairs(filepaths) do
-		-- make sure comparing goes only for files not directories
-		if string.find(v, "." ,1 ,true) == nil then
+		if v:find("." ,1 ,true) == nil then
 			goto continue
 		end
-		
-		local filename = fetch_last_word(v)
 
-		local b_lines = fetch_contents(backup_folder.."/"..filename) --> backup lines
-		local o_lines = fetch_contents(string.gsub(v, " ", ""))		 --> origin lines
-		
-		--? Should return: E, C, D, D, C, D, E
-		local changes = {}
-		for i = 1, math.max(#b_lines, #o_lines)	do
-			line_state = compare_line_state(b_lines, o_lines, i) 
-			table.insert(changes, {line_state, b_lines[i], o_lines[i]})
-		end
-		
-		for k, v in pairs(changes) do
-			--> v[1] == change type states[v[1]]
-			--> v[2] == old version
-			--> v[3] == new version
-		end
+		v = v:sub(2)
+		local filename = get_file_name(v)
+
+		compare_files(backup_path..filename, v)
 
 		::continue::
 	end
@@ -68,16 +90,17 @@ function c_create_backup(args)
 
 	local file = args[2]
 	if not file_exists(file) then 
-		print("File '" .. args[2] .. "' does not exist") 
+		print("File '" .. file .. "' does not exist") 
 	return end
 
-	local filename = fetch_last_word(args[2])
+	local filename = get_file_name(args[2])
 	filename = rm_file_extention(filename)
 
 	local backup_path = fetch_backupfolder(args) .. "/container/"..filename
-	
-	for line in io.lines() do
+	print("before loop")	
+	for line in io.lines(file) do
 		for word in string.gmatch(line, "[^%s]+") do
+			print(word)
 			if word == "FOLDER" or word == "FILE" then 
 				goto continue	
 			end
@@ -87,7 +110,7 @@ function c_create_backup(args)
 
 			-- Copying contents to directory
 			local copy_cmd = "yes | cp -rf ".. word .. " " .. backup_path .. "/"
-			
+			print("running backup..")
 			os.execute(mkdir_cmd)
 			os.execute(copy_cmd)
 

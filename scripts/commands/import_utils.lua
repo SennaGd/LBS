@@ -7,6 +7,7 @@ files = {
 	"fetch_backupfolder",
 	"extract_last_word",
 	"fetch_file_contents",
+	"remove_file_extention",
 }
 
 for i = 1, #files do
