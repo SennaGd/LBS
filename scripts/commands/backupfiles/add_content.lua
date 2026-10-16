@@ -23,17 +23,16 @@ function c_add(args)
 	for i = 3, #args do 
 		local path = parse_delimiters(args[i])
 		if not file_exists(path) then
-			print("Given path '"..path.."' does not exist")
+			print("Path not found:'"..path.."'")
 		return end
+
 		table.insert(entries, path)
 	end
-
 
 	if write_line(filepath, entries) then
 		print("Successfully updated '" .. filepath .. "'")
 	else
 		print("Couldn't open '" .. filepath .. "' for writing")
 	end
-
 end
 
