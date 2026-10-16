@@ -1,13 +1,3 @@
-local function write_line(filepath, entries)
-	local file = io.open(filepath, "a")
-	if not file then return false end
-
-	for _, entry in pairs(entries) do
-		file:write(entry.."\n")	
-	end
-
-	return file:close()
-end
 
 -- Adds content (i.e. files/folders) to .back file
 function c_add(args)
@@ -29,7 +19,7 @@ function c_add(args)
 		table.insert(entries, path)
 	end
 
-	if write_line(filepath, entries) then
+	if write_line(filepath, entries, "a") then
 		print("Successfully updated '" .. filepath .. "'")
 	else
 		print("Couldn't open '" .. filepath .. "' for writing")
