@@ -10,10 +10,9 @@ function c_remove(args)
 
 	local entries = {}
 	for line in io.lines(filepath) do
-		in_file = false
+		local in_file = false
 
 		for i=3, #args do
-			-- backupfile
 			local path = parse_delimiters(args[i])
 			if path == line then
 				in_file = true
