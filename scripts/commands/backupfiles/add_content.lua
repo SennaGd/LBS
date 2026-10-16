@@ -1,3 +1,14 @@
+local function write_line(filepath, entries)
+	local file = io.open(filepath, "a")
+	if not file then return false end
+
+	for _, entry in pairs(entries) do
+		file:write(entry.."\n")	
+	end
+
+	return file:close()
+end
+
 -- Adds content (i.e. files/folders) to .back file
 function c_add(args)
 	if not has_args(args) then return end
@@ -8,32 +19,21 @@ function c_add(args)
 		print("File '" .. filepath .. "' does not exist") 
 	return end
 
-	for i = 3, #args do -- start from index 3 | i.e. 1,2 are paths
-		-- handle delimiters
-		path = parse_delimiters(args[i])
-
-		-- check if folder/file exists
+	local entries = {}
+	for i = 3, #args do 
+		local path = parse_delimiters(args[i])
 		if not file_exists(path) then
-			print("Given path '"..args[i].."' does not exist")
+			print("Given path '"..path.."' does not exist")
 		return end
-
-		-- check if path is a path
-		if is_dir(path) then
-			path = "FOLDER "..path.."\n"
-		else
-			path = "FILE "..path.."\n"
-		end
-		
-		-- open backupfile in append mode
-		local backup_file = io.open(filepath, "a")
-		if backup_file then
-			io.input(backup_file)
-			backup_file:write(path)
-			backup_file:close()
-
-			print("Added '".. args[i] .. "' to '" .. filepath .. "'")
-		else
-			print("Couldn't open args[2] '" .. filepath .. "' exiting")
-		end
+		table.insert(entries, path)
 	end
+
+
+	if write_line(filepath, entries) then
+		print("Successfully updated '" .. filepath .. "'")
+	else
+		print("Couldn't open '" .. filepath .. "' for writing")
+	end
+
 end
+

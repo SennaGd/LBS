@@ -41,7 +41,7 @@ local command_list = {
 	["fetch"]	= c_fetch_backup,
 
 	-- test 
-	["t"] = compare_all_files,
+	["t"] = parse_delimiters,
 }
 
 local func = command_list[command]

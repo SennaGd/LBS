@@ -10,12 +10,12 @@ function compare_all_files(args)
 	
 	local backup_path = backup_folder.."/container/"..backup_name.."/"
 
-	for _, v in pairs(filepaths) do
-		if v:find("." ,1 ,true) ~= nil then
-			v = v:sub(2)
-			local filename = get_filename(v)
+	for _, file in pairs(filepaths) do
+		if file:find("." ,1 ,true) ~= nil then
+			file = file:sub(2)
+			local filename = get_filename(file)
 
-			compare_files(backup_path..filename, v)
+			compare_files(backup_path..filename, file)
 		end
 	end
 end

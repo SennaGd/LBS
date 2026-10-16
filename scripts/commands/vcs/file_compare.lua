@@ -22,8 +22,8 @@ end
 
 
 return function (old_filepath, new_filepath)
-	local old_contents = fetch_contents(old_filepath)
-	local new_contents = fetch_contents(new_filepath)
+	local old_contents = get_contents(old_filepath)
+	local new_contents = get_contents(new_filepath)
 
 	local changes = get_file_changes(old_contents, new_contents)
 	print_changes(changes)
