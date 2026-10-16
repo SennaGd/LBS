@@ -9,13 +9,21 @@ function c_remove(args)
 	return end
 
 	local entries = {}
-		for line in io.lines(filepath) do
+	for line in io.lines(filepath) do
+		in_file = false
+
+		for i=3, #args do
 			-- backupfile
-			local path = parse_delimiters(args[3])
-			if path ~= line then
-				table.insert(entries, line)
+			local path = parse_delimiters(args[i])
+			if path == line then
+				in_file = true
 			end
 		end
+
+		if not in_file then
+			table.insert(entries, line)
+		end
+	end
 
 	if write_line(filepath, entries, "w") then
 		print("Successfully updated '" .. filepath .. "'")
