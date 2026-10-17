@@ -4,8 +4,8 @@ function c_remove(args)
 
 	-- check if backupfile exists
 	local filepath = args[2]
+
 	if not file_exists(filepath) then 
-		print("File '" .. filepath .. "' does not exist") 
 	return end
 
 	local entries = {}
