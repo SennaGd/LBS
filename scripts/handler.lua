@@ -41,7 +41,7 @@ local command_list = {
 	["fetch"]	= c_fetch_backup,
 
 	-- test 
-	["t"] = parse_delimiters,
+	["t"] = version_control,
 }
 
 local func = command_list[command]

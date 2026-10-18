@@ -152,5 +152,3 @@ Het project is opgeslagen op Github, dit is gedaan omdat Github ook al het versi
 - Obsidian | Tekst Editor
 - Figma | Diagrammen
 - Github | Opslaan
-
-# Activiteit Diagram

@@ -26,7 +26,7 @@ return function (old_filepath, new_filepath)
 	local new_contents = get_contents(new_filepath)
 
 	local changes = get_file_changes(old_contents, new_contents)
-	print_changes(changes)
-end
+	--print_changes(changes)
+return changes end
 
 

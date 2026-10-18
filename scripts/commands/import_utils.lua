@@ -5,6 +5,7 @@ files = {
     "utils.fs.get_backup_dir",
     "utils.fs.is_dir",
     "utils.fs.read_file",
+	"utils.fs.make_file",
 	"utils.fs.write",
 
     "utils.path.extract_filepaths",

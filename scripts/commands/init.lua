@@ -1,6 +1,7 @@
 return {
     require("scripts.commands.core.help"),
     require("scripts.commands.core.version"),
+    require("scripts.commands.core.test"),
     
     -- managing backupfiles 
     require("scripts.commands.backupfiles.new"),
