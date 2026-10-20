@@ -27,7 +27,6 @@ local function read_vcs_file(filepath)
 			print(new_ver_line)
 		end
 
-		print(line, line_count, new_ver_line)
 		line_count = line_count + 1
 	end
 end
@@ -35,9 +34,9 @@ end
 function version_control(args)
 	if not has_args(args) then return end
 	
-	
 	local filepath = args[2]
 	local version_folder = get_version_folder(args)
+
 	local backup_name = remove_extention(get_filename(args[2]))
 	local backup_path = get_backupfolder(args).."/container/"..backup_name.."/"
 
@@ -46,9 +45,10 @@ function version_control(args)
 	
 	-- making version file
 	for line in io.lines(filepath) do
-		local vcs_filepath = get_vcs_filepath(version_folder, line)
+		vcs_filepath = get_vcs_filepath(version_folder, line)
 		if not file_exists(vcs_filepath) then
 			make_file(vcs_filepath)
+			write_line(vcs_filepath, {"[1]"}, "a")
 		end
 
 		if vcs_filepath ~= nil then
@@ -57,17 +57,34 @@ function version_control(args)
 	end
 
 	-- checking O_file > N_file
+	local changes = table
+
 	local filepaths = extract_filepaths(args)
 	for _, file in pairs(filepaths) do
 		if not is_dir(file) then
 			local filename = get_filename(file)
-			changes = compare_files(backup_path..filename, file)
+			changes = compare_files(
+				backup_path..filename,
+				file
+			)
 		end
-		
-		
-		if changes ~= nil then
-			for k,v in pairs(changes) do
 
+		if changes ~= nil then
+			for _,v in pairs(changes) do
+				if v[3] == nil then
+					v[3] = ""
+				end
+				
+				local parsed_line = "EQ"
+				if v[1] ~= "EQUAL" then
+					parsed_line = v[1]:sub(1,2).."	"..v[3]
+				end
+
+				write_line(
+					vcs_filepath, 
+					{parsed_line},
+					"a"
+				)
 			end
 		end
 	end

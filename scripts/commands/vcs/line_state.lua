@@ -17,9 +17,9 @@ return function(old_lines, new_lines, counter)
 	if is_exact_match(old_lines[counter], current_new_line) then
 		return "EQUAL"
 	elseif is_shifted_up(old_lines[counter+1], current_new_line) then
-		return "SHIFTED_UP"
+		return "UP"
 	elseif is_shifted_down(old_lines[counter-1], current_new_line) then
-		return "SHIFTED_DOWN"
+		return "DOWN"
 	end
 
 	return "CHANGED" 

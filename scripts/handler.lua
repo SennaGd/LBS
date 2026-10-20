@@ -42,6 +42,7 @@ local command_list = {
 
 	-- test 
 	["t"] = version_control,
+	["f"]  = fetch_old_file,
 }
 
 local func = command_list[command]
