@@ -340,6 +340,6 @@
 | :-----------------: | :---------------: | :--------------: | :-------------------------------: |
 |         13          |        11         |        0         |                 2                 |
 
-**Conclusie & Advies:**
+### Conclusie & Advies
 Het programma Lokaal Back-Up Systeem (LBS) functioneert over het algemeen stabiel, van de 13 uitgevoerde tests zijn er 11 successvol behaald, de 2 tests die niet behaalt zijn waren geblokkeerd (TR-02-03 en TR-04-03) wat betekend dat deze onderdelen nog verdere ontwikkeling nodig hebben. 
 

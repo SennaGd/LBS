@@ -7,21 +7,20 @@
 | **Tester(s)**            | Rick Salden                                                                                                             |
 | **Datum van uitvoering** | 21 / 10 / 2026                                                                                                          |
 | **Testomgeving / OS**    | Cachyos Linux 6.18.52-1, kitty 0.49.2                                                                                   |
-| **Geteste Versie**       | 1.0                                                                                                                     |
+| **Geteste Versie**       | ( F.1 ) Acceptatie testcases                                                                                            |
 | **Doel van de test**     | Het verifieren en accepteren van de functionaliteit van het LBS-systeem op basis van de opgestelde acceptatietestcases. |
 | **Gelinkte Documenten**  | [[( F.1 ) Acceptatie testcases]]                                                                                        |
 
 ## 2. Testresultaten per Acceptatiecriterium
 
 ### GAT-01: Gebruikersgemak & Eerste ervaring
-
 #### GAT-01-01: Omgeving starten via de terminal
 
-|   |   |
-|---|---|
-|**Veld**|**Inhoud**|
-|**Test ID / Referentie**|GAT-01-01|
-|**Testresultaat**|**[ Behaald / Niet behaald / Geblokkeerd ]**|
+|                          |             |
+| ------------------------ | ----------- |
+| **Veld**                 | **Inhoud**  |
+| **Test ID / Referentie** | GAT-01-01   |
+| **Testresultaat**        | **Behaald** |
 
 **Uitgevoerde stappen:**
  1. Open de terminal (Kitty, Alacritty, GNOME terminal, Konsole, Foot, of St).
@@ -34,9 +33,9 @@
  - Bij onjuiste argumenten geeft het programma een duidelijke foutmelding dat de argumenten niet kloppen.
 
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-01-01 — Start programma omgeving op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-01-01 — Start programma omgeving op|Ga naar testrapport]]
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-01-01 — Start programma omgeving op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-01-01 — Start programma omgeving op|Ga naar testrapport]]
 
 #### GAT-01-02: Raadplegen van ingebouwde hulp-pagina
 
@@ -55,10 +54,10 @@
 - De getoonde output geeft een duidelijk overzicht van alle commando's en de juiste werkwijze van het programma.
 
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-05-01 — Hulp command uitvoeren|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-05-01 — Hulp command uitvoeren|Ga naar testrapport]]
 
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-05-01 — Hulp command uitvoeren|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-05-01 — Hulp command uitvoeren|Ga naar testrapport]]
 
 ### GAT-02: Beheer van Backup-bestanden
 
@@ -81,10 +80,10 @@
 - Bij een al bestaande naam toont het programma een duidelijke melding.
        
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-02-01 — Maakt een backupbestand aan|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-02-01 — Maakt een backupbestand aan|Ga naar testrapport]]
        
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-02-01 — Maakt een backupbestand aan|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-02-01 — Maakt een backupbestand aan|Ga naar testrapport]]
 
 
 #### GAT-02-02: Toevoegen van bestanden en folders aan een backupbestand
@@ -107,10 +106,10 @@
   - Bestanden/mappen met spaties worden geweigerd met een passende melding.
       
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-03-01 — Voegt een folder of bestand toe aan een backupbestand|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-01 — Voegt een folder of bestand toe aan een backupbestand|Ga naar testrapport]]
 
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-03-01 — Voegt een folder of bestand toe aan een backupbestand|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-01 — Voegt een folder of bestand toe aan een backupbestand|Ga naar testrapport]]
 
 #### GAT-02-03: Inzien/Raadplegen inhoud backupbestand
 
@@ -131,10 +130,10 @@
   - Bij een niet-bestaand bestand wordt een duidelijke foutmelding getoond.
       
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-03-03 — Haalt de inhoud van een backupbestand op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-03 — Haalt de inhoud van een backupbestand op|Ga naar testrapport]]
       
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-03-03 — Haalt de inhoud van een backupbestand op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-03 — Haalt de inhoud van een backupbestand op|Ga naar testrapport]]
      
 
 #### GAT-02-04: Bestanden en folders verwijderen uit een backupbestand
@@ -156,10 +155,10 @@
 - Indien het backupbestand niet bestaat, geeft het systeem aan dat dit backupbestand niet bestaat.
 
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-03-02 — Verwijderd bestand of folder uit backupbestand|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-02 — Verwijderd bestand of folder uit backupbestand|Ga naar testrapport]]
       
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-03-02 — Verwijderd bestand of folder uit backupbestand|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-03-02 — Verwijderd bestand of folder uit backupbestand|Ga naar testrapport]]
         
 
 ### GAT-03: Uitvoeren van een Back-up
@@ -185,10 +184,10 @@
 - Bij een niet-bestaand backupbestand meldt het programma dat er geen back-up kan worden uitgevoerd.
       
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-04-01 — Maakt een back-up aan|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-04-01 — Maakt een back-up aan|Ga naar testrapport]]
       
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-04-01 — Maakt een back-up aan|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-04-01 — Maakt een back-up aan|Ga naar testrapport]]
       
 
 #### GAT-03-02: Inhoud van een backup ophalen
@@ -235,10 +234,10 @@
 - Bij een niet-bestaande back-up meldt het systeem dat deze back-up niet bestaat.
       
 **Daadwerkelijk resultaat:**
-- [[21_10__26 - Testrapport-Salden#TR-04-02 — Haalt een back-up op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-04-02 — Haalt een back-up op|Ga naar testrapport]]
       
 **Bevindingen / Foutmeldingen:**
-- [[21_10__26 - Testrapport-Salden#TR-04-02 — Haalt een back-up op|Ga naar testrapport]]
+- [[21_10_26 - Testrapport - Salden#TR-04-02 — Haalt een back-up op|Ga naar testrapport]]
 - 
 ## 3. Algemene Samenvatting Testronde
 
