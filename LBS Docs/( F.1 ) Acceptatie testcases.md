@@ -1,11 +1,11 @@
 Datum 21 / 10 / 2026
 
 ## GAT-01: Gebruikersgemak & Eerste ervaring
-#### - GAT-01-01: Omgeving starten via de terminal ( Terminal: Kitty, Alacritty, GONOME terminal, Konsole, Foot, St )
+#### - GAT-01-01: Omgeving starten via de terminal 
 
 | Veld                    | Inhoud                                                                                                                                                                                                                                                                                                                               |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Titel**               | GAT-01-01: Omgeving starten via de terminal                                                                                                                                                                                                                                                                                          |
+| **Titel**               | GAT-01-01: Omgeving starten via de terminal: (i.e. Terminal: Kitty, Alacritty, GONOME terminal, Konsole, Foot, St)                                                                                                                                                                                                                   |
 | **DOEL**                | De gebruiker kan de omgeving opstarten                                                                                                                                                                                                                                                                                               |
 | **Scenario**            | Een gebruiker wilt het programma LBS starten zodat hij lokale back-ups kan maken                                                                                                                                                                                                                                                     |
 | **Acceptatiecriterium** | Het programma start direct op na het invoeren van LBS in de terminal.<br><br>De gebruiker krijgt na het opstarten direct een visuele bevestiging  dat het programma actief is.<br><br>Indien het programma met onjuiste argumenten wordt gestart, zal het programma laten zien dat de argumenten die meegegeven werden niet kloppen. |

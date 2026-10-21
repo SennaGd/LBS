@@ -7,7 +7,6 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "linked_list.h"
 #include "input_parser.h"
 #include "string_parser.c"
 
