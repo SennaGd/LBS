@@ -48,11 +48,12 @@
 
 ## TC-02-01 — Maakt een backupbestand aan
 
-| Veld | Inhoud |
-| :--- | :--- |
-| **Titel / ID** | TC-02-01 — Maakt een backupbestand aan |
-| **Scope** | Nieuw backupbestand aanmaken (in en uit omgeving) |
-| **Preconditions** | LBS is klaar voor gebruik. |
+| Veld              | Inhoud                                            |
+| :---------------- | :------------------------------------------------ |
+| **Titel / ID**    | TC-02-01 — Maakt een backupbestand aan            |
+| **Scope**         | Nieuw backupbestand aanmaken (in en uit omgeving) |
+| **Preconditions** | LBS is klaar voor gebruik.                        |
+|                   |                                                   |
 
 **Stappen**
 1. Typ `new "backup2"` in de LBS omgeving.
@@ -81,7 +82,7 @@
 **Stappen**
 1. Typ `remove backup2` in de LBS omgeving.
 2. Controleer of het bestand is verwijderd.
-3. Typ buiten de omgeving `LBS -r backup2` om een bestand te verwijderen.
+3. Typ buiten de omgeving `LBS -rm backup2` om een bestand te verwijderen.
 4. Probeer een niet bestaand backupbestand te verwijderen.
 
 **Verwacht resultaat**

@@ -48,7 +48,7 @@ function version_control(args)
 		vcs_filepath = get_vcs_filepath(version_folder, line)
 		if not file_exists(vcs_filepath) then
 			make_file(vcs_filepath)
-			write_line(vcs_filepath, {"[1]"}, "a")
+			-- write_line(vcs_filepath, {"[1]"}, "a")
 		end
 
 		if vcs_filepath ~= nil then
@@ -74,17 +74,13 @@ function version_control(args)
 				if v[3] == nil then
 					v[3] = ""
 				end
-				
-				local parsed_line = "EQ"
-				if v[1] ~= "EQUAL" then
-					parsed_line = v[1]:sub(1,2).."	"..v[3]
-				end
+				print(v[3])
 
-				write_line(
-					vcs_filepath, 
-					{parsed_line},
-					"a"
-				)
+				-- write_line(
+				-- vcs_filepath, 
+				--	{parsed_line},
+				--	"a"
+				--)
 			end
 		end
 	end
