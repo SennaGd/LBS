@@ -18,8 +18,21 @@ int main(int argc, char *argv[])
 	
 	// Handle input
 	if (argc > 1) {
-		printf("Hello, %s!\n", argv[1]);
-
+		lua_pushstring(L, argv[1]); 
+		lua_setglobal(L, "command");
+		if (argc >= 2 ) {
+			int num_args = argc-2;	
+			lua_createtable(L, num_args, 0);
+			for (int i=2; i<argc; i++) {
+				lua_pushstring(L, argv[i]);
+				lua_rawseti(L, -2, i-1);
+			}
+		}	
+		
+		lua_setglobal(L, "arguments");
+		if (luaL_loadfile(L, "./scripts/handler.lua") || lua_pcall(L, 0, 0, 0)) {
+				printf("Error in lua file: \n%s\n", lua_tostring(L, -1));
+			}
 		lua_close(L);
 		return 0;
    } 

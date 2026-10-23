@@ -56,7 +56,6 @@ int fetch_args(char input[512], size_t sz_cmd, lua_State *L) {
 														   
 			lua_pushstring(L, buff);
 			lua_rawseti(L, -2, count+1);
-
 			count++;	
 			index=0;
 
