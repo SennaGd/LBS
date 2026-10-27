@@ -4,7 +4,6 @@ function write_line(filepath, entries, mode)
 	if not file then return false end
 
 	for _, entry in pairs(entries) do
-		print(entry)
 		file:write(entry.."\n")	
 	end
 

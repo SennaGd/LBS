@@ -1,5 +1,3 @@
-local compare_files = require("scripts.commands.vcs.file_compare")
-
 local function get_vcs_filepath(version_folder, path)
 	local filename = get_filename(path)
 	local idx = filename:match(".*()%.") -- dot index
@@ -63,10 +61,6 @@ function version_control(args)
 	for _, file in pairs(filepaths) do
 		if not is_dir(file) then
 			local filename = get_filename(file)
-			changes = compare_files(
-				backup_path..filename,
-				file
-			)
 		end
 
 		if changes ~= nil then

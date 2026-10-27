@@ -14,8 +14,6 @@ files = {
     "utils.path.remove_extention",
 
 	"vcs.batch_compare",
-	"vcs.file_compare",
-	"vcs.line_state",
 }
 
 for i = 1, #files do
