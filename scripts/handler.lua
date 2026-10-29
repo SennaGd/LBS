@@ -43,6 +43,7 @@ local command_list = {
 	-- test 
 	["t"] = version_control,
 	["f"] = compare_all_files,
+	["w"] = write_version_to_file
 }
 
 local func = command_list[command]
