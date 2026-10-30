@@ -41,10 +41,6 @@ local command_list = {
 	["backup"]	= c_create_backup,
 	-- Able to fetch old FILE BACKUPS
 	["fetch"]	= c_fetch_backup, 
-
-	-- test 
-	["f"] = compare_all_files,
-	["w"] = write_version_to_file
 }
 
 local func = command_list[command]
