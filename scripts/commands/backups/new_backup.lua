@@ -69,8 +69,8 @@ function c_create_backup(args)
 
 		-- Copying contents to directory
 		local copy_cmd = "yes | cp -rf ".. line .. " " .. backup_path .. "/"
-		-- os.execute(mkdir_cmd)
-		-- os.execute(copy_cmd)
+		 os.execute(mkdir_cmd)
+		 os.execute(copy_cmd)
 
 		print("Created backup at '"..backup_path.."'")
 		

@@ -1,8 +1,9 @@
+# ( C.1 ) Technisch Ontwerp - Lokaal Back-Up Systeem
 Datum: 27 / 09 / 2026
 
-# Inleiding
+## Inleiding
 Dit document beschrijft de technische architectuur en de realisatie van het Lokaal Back-Up Systeem, gebaseerd op de functionele eisen. In het document [[( B.1 ) Functioneel Ontwerp - Lokaal Back-up Systeem]] bevindt zich de informatie over de applicatie. De doelstelling van dit document is om de functionaliteiten/use-cases te realiseren en uit te pakken. De keuzes gemaakt in dit document zijn gebaseerd op de tijd gegeven voor het project (4 weken). 
-# Plan van aanpak
+## Plan van aanpak
 In de applicatie LBS (Lokaal Back-Up Systeem) zijn er twee verschillende producten vastgesteld. Waarvan het hoofdproduct het LBS programma is en als zijproduct de documentatie website. 
 
 ### 1. Hoofdproduct LBS Programma
@@ -41,7 +42,7 @@ Voor de documentatiewebsite hoeft er niet getest te worden. Sinds het niet uit m
 | 23-10-26 | Testing                | Testen                              | het testen van de applicatie                                                                                                                                                                                                       |        8        |
 | 25-10-26 | Oplevering             | Opleveren van Product               | Het product overdragen aan de product owner.                                                                                                                                                                                       |        4        |
 
-# Interfaces
+## Interfaces
 
 ### LBS
 1. LBS Omgeving
@@ -91,7 +92,7 @@ FILE /usr/dev/documents/file.txt
 +2 Made by Administrator 
 +3 This is not a line!!!!
 ```
-# Ontwikkelomgeving
+## Ontwikkelomgeving
 
 ### Technischeinfrastructuur
 **Beveiliging**

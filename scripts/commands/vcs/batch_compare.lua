@@ -93,6 +93,7 @@ end
 -- fetches version (x) and returns contents: table(lines)
 -- takes string(filepath), number(version)
 function fetch_version(filepath, target_version)
+
 	local contents = {}
     local current_version = 0
     

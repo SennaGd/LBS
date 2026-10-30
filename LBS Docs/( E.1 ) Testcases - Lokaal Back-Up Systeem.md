@@ -1,12 +1,14 @@
-# TC-01 — Opstarten en afsluiten van LBS
+# ( E.1 ) Testcases - Lokaal Back-Up Systeem
 
-## TC-01-01 — Start programma omgeving op
+## TC-01 — Opstarten en afsluiten van LBS
 
-| Veld              | Inhoud                                                                         |
-| :---------------- | :----------------------------------------------------------------------------- |
-| **Titel / ID**    | TC-01-01 — Start programma omgeving op                                         |
-| **Scope**         | LBS omgeving opstarten via terminal                                            |
-| **Preconditions** | Het programma LBS is geïnstalleerd en bereikbaar via de terminal.              |
+### TC-01-01 — Start programma omgeving op
+
+| Veld              | Inhoud                                                            |
+| :---------------- | :---------------------------------------------------------------- |
+| **Titel / ID**    | TC-01-01 — Start programma omgeving op                            |
+| **Scope**         | LBS omgeving opstarten via terminal                               |
+| **Preconditions** | Het programma LBS is geïnstalleerd en bereikbaar via de terminal. |
 
 **Stappen**
 1. Open de terminal.
@@ -22,13 +24,13 @@
 
 ---
 
-## TC-01-02 — Sluit het programma af
+### TC-01-02 — Sluit het programma af
 
-| Veld | Inhoud |
-| :--- | :--- |
-| **Titel / ID** | TC-01-02 — Sluit het programma af |
-| **Scope** | Programma afsluiten (elegant of geforceerd) |
-| **Preconditions** | LBS omgeving is actief. |
+| Veld              | Inhoud                                      |
+| :---------------- | :------------------------------------------ |
+| **Titel / ID**    | TC-01-02 — Sluit het programma af           |
+| **Scope**         | Programma afsluiten (elegant of geforceerd) |
+| **Preconditions** | LBS omgeving is actief.                     |
 
 **Stappen**
 1. Typ `exit` in wanneer er geen actieve taak bezig is.
@@ -44,9 +46,9 @@
 
 ---
 
-# TC-02 — Backupbestanden beheren
+## TC-02 — Backupbestanden beheren
 
-## TC-02-01 — Maakt een backupbestand aan
+### TC-02-01 — Maakt een backupbestand aan
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -70,7 +72,7 @@
 
 ---
 
-## TC-02-02 — Backupbestand verwijderen
+### TC-02-02 — Backupbestand verwijderen
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -93,7 +95,7 @@
 
 ---
 
-## TC-02-03 — Het pad van backupbestand ophalen
+### TC-02-03 — Het pad van backupbestand ophalen
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -115,9 +117,9 @@
 
 ---
 
-# TC-03 — Inhoud van backupbestanden beheren
+## TC-03 — Inhoud van backupbestanden beheren
 
-## TC-03-01 — Voegt een folder of bestand toe aan een backupbestand
+### TC-03-01 — Voegt een folder of bestand toe aan een backupbestand
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -141,7 +143,7 @@
 
 ---
 
-## TC-03-02 — Verwijderd bestand of folder uit backupbestand
+### TC-03-02 — Verwijderd bestand of folder uit backupbestand
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -164,7 +166,7 @@
 
 ---
 
-## TC-03-03 — Haalt de inhoud van een backupbestand op
+### TC-03-03 — Haalt de inhoud van een backupbestand op
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -185,9 +187,9 @@
 
 ---
 
-# TC-04 — Back-ups en versiebeheer
+## TC-04 — Back-ups en versiebeheer
 
-## TC-04-01 — Maakt een back-up aan
+### TC-04-01 — Maakt een back-up aan
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -210,7 +212,7 @@
 
 ---
 
-## TC-04-02 — Haalt een back-up op
+### TC-04-02 — Haalt een back-up op
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -232,7 +234,7 @@
 
 ---
 
-## TC-04-03 — Haalt oude back-up terug
+### TC-04-03 — Haalt oude back-up terug
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -254,7 +256,7 @@
 
 ---
 
-## TC-04-04 — Haalt oude versies van een back-up op
+### TC-04-04 — Haalt oude versies van een back-up op
 
 | Veld | Inhoud |
 | :--- | :--- |
@@ -275,9 +277,9 @@
 
 ---
 
-# TC-05 — Hulp functionaliteit
+## TC-05 — Hulp functionaliteit
 
-## TC-05-01 — Hulp command uitvoeren
+### TC-05-01 — Hulp command uitvoeren
 
 | Veld | Inhoud |
 | :--- | :--- |
