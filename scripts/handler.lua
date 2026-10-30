@@ -37,11 +37,12 @@ local command_list = {
 	["add"]		= c_add, 
 	["remove"]	= c_remove,
 
+	-- Able to backup old FILE BACKUPS
 	["backup"]	= c_create_backup,
-	["fetch"]	= c_fetch_backup,
+	-- Able to fetch old FILE BACKUPS
+	["fetch"]	= c_fetch_backup, 
 
 	-- test 
-	["t"] = version_control,
 	["f"] = compare_all_files,
 	["w"] = write_version_to_file
 }
